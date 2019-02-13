@@ -85,6 +85,7 @@ public class GameWindow extends Canvas{
 				//update Methode
 				update();
 				
+				
 				frames++;
 				deltaTime = 0;
 				startTime = System.nanoTime();	
@@ -131,6 +132,9 @@ public class GameWindow extends Canvas{
 	//Update Method
 	public void update() {
 		gui.update();
+		gameMap.update();
+		
+		
 	}
 	
 	//initialize Window

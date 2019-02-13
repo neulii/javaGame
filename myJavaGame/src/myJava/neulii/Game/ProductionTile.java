@@ -22,5 +22,14 @@ public class ProductionTile extends Tile {
 		
 		return buildAble;
 	}
+	
+	@Override
+	public void update() {
+		
+		System.out.println("test");
+		
+		
+		
+	}
 
 }

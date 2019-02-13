@@ -135,9 +135,19 @@ public class Map implements GameObject {
 	}
 
 	@Override
+	
+	//TODO
 	public void update() {
-		// TODO Auto-generated method stub
-
+		for (Tile tile : mapTiles) {
+			tile.update();
+			if(tile.getFieldType()==FieldType.COAL_MINE){
+				
+				System.out.println("super");
+			}
+			
+		}
+		
+		
 	}
 	
 	public Tile getTileFromCoordinate(int x, int y) {
