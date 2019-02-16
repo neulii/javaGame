@@ -46,6 +46,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 //				tile.setHooveredBorderColor(Color.red);
 //				tile.setHoovered(true);
 				
+				
 				//when buildable on field
 				if(gui.getElementMarked()!=null) {
 					System.out.println(gui.getElementMarked().getFieldType() + "      "  + gw.getMap().getTileFromCoordinate(e.getX(), e.getY()).getFieldType());
