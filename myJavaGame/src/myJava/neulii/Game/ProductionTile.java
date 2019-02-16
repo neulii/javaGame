@@ -4,10 +4,11 @@ public class ProductionTile extends Tile {
 
 	private FieldType buildOn;
 	
-	public ProductionTile(Tile tile, FieldType buildOn) {
+	public ProductionTile(Tile tile, FieldType fieldType) {
 		super(tile);
 		
-		this.buildOn = buildOn;
+		buildOn = tile.getFieldType();
+		this.setFieldType(fieldType);
 		
 		
 	}
