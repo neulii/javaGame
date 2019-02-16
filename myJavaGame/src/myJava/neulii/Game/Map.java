@@ -162,4 +162,15 @@ public class Map implements GameObject {
 		
 		return temp;
 	}
+	
+	
+	private int getIndex(Tile tile) {
+		int index = mapTiles.indexOf(tile);
+		
+		return index;
+	}
+	public void setFieldAtCoordinate(Tile tile,int x, int y) {
+		int index = this.getTileFromCoordinate(x, y).
+		
+	}
 }
