@@ -162,5 +162,8 @@ public class Tile implements GameObject {
 		resources =- resource;
 	}
 	
+	public int getHooverBorderThickness() {
+		return hooveredBorderThickness;
+	}
 	
 }

@@ -164,13 +164,16 @@ public class Map implements GameObject {
 	}
 	
 	
-	private int getIndex(Tile tile) {
+	public int getIndex(Tile tile) {
 		int index = mapTiles.indexOf(tile);
 		
 		return index;
 	}
-	public void setFieldAtCoordinate(Tile tile,int x, int y) {
-		int index = this.getTileFromCoordinate(x, y).
+	
+	public void changeField(Tile oldField, Tile newField) {
+		int index = mapTiles.indexOf(oldField);
+		mapTiles.set(index, newField);
 		
 	}
+	
 }

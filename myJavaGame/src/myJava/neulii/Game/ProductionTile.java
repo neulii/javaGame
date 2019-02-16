@@ -7,6 +7,7 @@ public class ProductionTile extends Tile {
 	public ProductionTile(Tile tile, FieldType fieldType) {
 		super(tile);
 		
+		setHooveredBorderThickness(tile.getHooverBorderThickness());
 		buildOn = tile.getFieldType();
 		this.setFieldType(fieldType);
 		
@@ -28,9 +29,7 @@ public class ProductionTile extends Tile {
 	public void update() {
 		
 		System.out.println("test");
-		
-		
-		
+
 	}
 
 }
