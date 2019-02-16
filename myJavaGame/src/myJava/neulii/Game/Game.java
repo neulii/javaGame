@@ -5,7 +5,6 @@ package myJava.neulii.Game;
 public class Game{
 	
 	public static void main(String[] args) {
-		new GameWindow(1000,800);
-		
+		new GameWindow(1000,800);		
 	}
 }
