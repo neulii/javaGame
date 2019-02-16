@@ -76,9 +76,7 @@ public class Map implements GameObject {
 				
 				tempTile.setHooveredBorderColor(Color.blue);
 				tempTile.setHooveredBorderThickness(2);
-				mapTiles.add(tempTile);
-				
-				
+				mapTiles.add(tempTile);	
 			}
 		}
 	}	
@@ -140,14 +138,7 @@ public class Map implements GameObject {
 	public void update() {
 		for (Tile tile : mapTiles) {
 			tile.update();
-			if(tile.getFieldType()==FieldType.COAL_MINE){
-				
-				System.out.println("super");
-			}
-			
 		}
-		
-		
 	}
 	
 	public Tile getTileFromCoordinate(int x, int y) {
@@ -163,7 +154,6 @@ public class Map implements GameObject {
 		return temp;
 	}
 	
-	
 	public int getIndex(Tile tile) {
 		int index = mapTiles.indexOf(tile);
 		
@@ -173,7 +163,6 @@ public class Map implements GameObject {
 	public void changeField(Tile oldField, Tile newField) {
 		int index = mapTiles.indexOf(oldField);
 		mapTiles.set(index, newField);
-		
 	}
 	
 }

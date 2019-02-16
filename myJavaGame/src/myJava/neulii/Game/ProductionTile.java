@@ -27,9 +27,8 @@ public class ProductionTile extends Tile {
 	
 	@Override
 	public void update() {
-		
-		System.out.println("test");
-
+		//TODO funktion fuer production tile udpate
+		System.out.println(getFieldType()+ "   update");
 	}
 
 }
