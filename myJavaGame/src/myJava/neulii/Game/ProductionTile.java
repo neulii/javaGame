@@ -4,10 +4,13 @@ public class ProductionTile extends Tile {
 
 	private FieldType buildOn;
 	private double minedAmount = 0;
-	private double miningPerSecond = 3;	
+	private double miningPerSecond = 1;	
+	private MaterialManager mm;
 	
-	public ProductionTile(Tile tile, FieldType fieldType) {
+	public ProductionTile(Tile tile, FieldType fieldType, MaterialManager mm) {
 		super(tile);
+		
+		this.mm = mm;
 		
 		setHooveredBorderThickness(tile.getHooverBorderThickness());
 		buildOn = tile.getFieldType();
@@ -30,24 +33,28 @@ public class ProductionTile extends Tile {
 		//System.out.println(getFieldType()+ "   update   " + getResources());
 		
 		
+		if(getResources()>=0) {
+			double minedThisUpdate = dT * miningPerSecond /1_000_000_000;
+			
+			minedAmount = minedAmount + minedThisUpdate;
+				
+			switch (getFieldType()) {
+				case COAL_MINE:
+					
+					mm.addMaterials(minedThisUpdate, 0);
+					break;
 		
-		double minedThisUpdate = dT * miningPerSecond /1_000_000_000;
-		System.out.println(minedThisUpdate);
+				case IRON_ORE_MINE:
+					mm.addMaterials(0, minedThisUpdate);
+					break;
+					
+				default:
+					break;
+				}
+			
+			subtractResource(minedThisUpdate);
+		}
 		
-		minedAmount = minedAmount + minedThisUpdate;
-		
-		subtractResource(minedThisUpdate);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
 		//System.out.println(dT);
 		
 	}
