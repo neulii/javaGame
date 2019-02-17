@@ -4,5 +4,7 @@ TODOS
 
 - produktionsstätte animieren
 
+- map kann sich bewegen
+
 
 
