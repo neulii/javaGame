@@ -39,14 +39,13 @@ public class GUI implements GameObject{
 		}
 
 		Tile coalSymbol;
+		Tile ironOreSymbol;
 		
 		coalSymbol = new Tile(20,200,30,30,ImageLoader.loadImage("/coalSymbol.png"));
+		ironOreSymbol = new Tile(20,240,30,30,ImageLoader.loadImage("/ironOreSymbol.png"));
+		
 		symbolTiles.add(coalSymbol);
-		
-		
-		
-		
-		
+		symbolTiles.add(ironOreSymbol);
 	}
 	
 	@Override
@@ -61,21 +60,17 @@ public class GUI implements GameObject{
 			g.setFont(new Font("default",Font.BOLD,20));
 			g.drawString("FPS: " + Integer.toString(gw.getActualFrames()),0,20);
 		
-		
 			//showField information
 		
 			String fieldType = tempField.getFieldType().toString(); 
 					
-	
 			String infoString1 = "FieldType: " + fieldType +  " ";
 			String infoString2 = "Resource:  " + tempField.getResources() + " " ;
-			
 			
 			g.setColor(Color.black);
 			g.setFont(new Font("default",Font.BOLD,12));
 			g.drawString(infoString1 ,gw.getWidth()-200,20);
 			g.drawString(infoString2 ,gw.getWidth()-200,40);
-		
 		}
 
 		//render menu
@@ -89,10 +84,14 @@ public class GUI implements GameObject{
 			tile.render(g);
 		}
 		
-		//Coal Font
+		//Coal Info
 		g.setColor(Color.black);
 		g.setFont(new Font("default",Font.BOLD,20));
-		g.drawString(Integer.toString((int)(gw.getMaterialManager().getcoal())),60,220);
+		g.drawString(Integer.toString((int)(mm.getcoal())),60,220);
+	
+		//iron_ore info
+		g.drawString(Integer.toString((int)(mm.getIronOre())),60,260);
+	
 	}
 
 	@Override
@@ -100,14 +99,12 @@ public class GUI implements GameObject{
 		boolean allOver = false;
 		boolean tempIsOverMenu = false;
 		
-		
 		for (ProductionTile tile : menuTiles) {
 			if(tile.isInside(gw.getMousePos())) {
 				
 				tile.setHoovered(true);
 				tempIsOverMenu = true;
-				hooveredTile = tile;
-			
+				hooveredTile = tile;	
 			}
 			else {
 				tempIsOverMenu = false;
@@ -146,7 +143,6 @@ public class GUI implements GameObject{
 			
 			elementIsMarked = null;
 		}
-		
 	}
 	
 	public ProductionTile getElementMarked() {
