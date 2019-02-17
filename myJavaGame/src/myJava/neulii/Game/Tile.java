@@ -125,7 +125,7 @@ public class Tile implements GameObject {
 	}
 
 	@Override
-	public void update() {
+	public void update(long dT) {
 		
 	}
 	

@@ -8,7 +8,7 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
-public class GameWindow extends Canvas{
+public class GameWindow extends Canvas implements GameObject{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -83,8 +83,7 @@ public class GameWindow extends Canvas{
 			if(deltaTime>=timePerFrame) {
 				
 				//update Methode
-				update();
-				
+				update(deltaTime);
 				
 				frames++;
 				deltaTime = 0;
@@ -130,11 +129,9 @@ public class GameWindow extends Canvas{
 	}
 	
 	//Update Method
-	public void update() {
-		gui.update();
-		gameMap.update();
-		
-		
+	public void update(long dT) {
+		gui.update(dT);
+		gameMap.update(dT);
 	}
 	
 	//initialize Window

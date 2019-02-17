@@ -73,7 +73,7 @@ public class GUI implements GameObject{
 	}
 
 	@Override
-	public void update() {
+	public void update(long dT) {
 		boolean allOver = false;
 		boolean tempIsOverMenu = false;
 		

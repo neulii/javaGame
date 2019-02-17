@@ -10,25 +10,22 @@ public class ProductionTile extends Tile {
 		setHooveredBorderThickness(tile.getHooverBorderThickness());
 		buildOn = tile.getFieldType();
 		this.setFieldType(fieldType);
-		
-		
 	}
-	
-	
+
 	public boolean getBuildOn(FieldType fieldType) {
 		boolean buildAble = false;
 		
 		if(this.buildOn==fieldType) {
 			buildAble = true;
 		}
-		
 		return buildAble;
 	}
 	
 	@Override
-	public void update() {
+	public void update(long dT) {
 		//TODO funktion fuer production tile udpate
-		System.out.println(getFieldType()+ "   update");
+		subtractResource(1);
+		System.out.println(getFieldType()+ "   update   " + getResources());
+		
 	}
-
 }

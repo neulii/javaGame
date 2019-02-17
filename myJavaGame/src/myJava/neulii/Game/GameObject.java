@@ -8,5 +8,5 @@ public interface GameObject {
 	public void render(Graphics g);
 	
 	//Method for Updating game logic
-	public void update();
+	public void update(long dT);
 }

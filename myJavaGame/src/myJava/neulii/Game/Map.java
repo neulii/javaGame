@@ -135,9 +135,9 @@ public class Map implements GameObject {
 	@Override
 	
 	//TODO
-	public void update() {
+	public void update(long dT) {
 		for (Tile tile : mapTiles) {
-			tile.update();
+			tile.update(dT);
 		}
 	}
 	
