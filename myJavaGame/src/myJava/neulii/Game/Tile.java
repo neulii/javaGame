@@ -11,7 +11,7 @@ public class Tile implements GameObject {
 	private int width;
 	private int height;
 	
-	private int resources = 1000000000;
+	private int resources = 1000;
 
 	private boolean isHoovered = false;
 
@@ -151,7 +151,10 @@ public class Tile implements GameObject {
 	}
 	
 	public void subtractResource(int resource) {
-		resources -= 1;
+		
+		if(this.resources > 0) {
+			this.resources = this.resources-resource;			
+		}
 	}
 	
 	public int getHooverBorderThickness() {
