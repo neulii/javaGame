@@ -11,7 +11,7 @@ public class Tile implements GameObject {
 	private int width;
 	private int height;
 	
-	private int resources = 1000;
+	private double resources = 1000;
 
 	private boolean isHoovered = false;
 
@@ -146,7 +146,7 @@ public class Tile implements GameObject {
 		
 	}
 	
-	public int getResources() {
+	public double getResources() {
 		return resources;
 	}
 	
