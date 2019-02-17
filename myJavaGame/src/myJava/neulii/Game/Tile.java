@@ -42,6 +42,17 @@ public class Tile implements GameObject {
 		this.fieldType = tile.getFieldType();
 	}
 	
+	public Tile(int x, int y, int width, int height, BufferedImage image) {
+		this.height = height;
+		this.width = width;
+		this.x = x;
+		this.y = y;
+		this.image = image;
+		this.fieldType = null;
+	}
+	
+	
+	
 	public BufferedImage getImage() {
 		return image;
 	}
