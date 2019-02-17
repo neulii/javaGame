@@ -11,7 +11,6 @@ import javax.swing.event.MouseInputListener;
 
 public class InputListener extends MouseAdapter implements MouseInputListener, KeyListener{
 
-	
 	private Tile activeTile = null;
 	private Tile newTile = null;
 	private BufferedImage changeingTile = null;
@@ -43,10 +42,6 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 			//when mouse is not in menu
 			if(!gw.getMouseOverMenu()) {
 
-//				tile.setHooveredBorderColor(Color.red);
-//				tile.setHoovered(true);
-				
-				
 				//when buildable on field
 				if(gui.getElementMarked()!=null) {
 					System.out.println(gui.getElementMarked().getFieldType() + "      "  + gw.getMap().getTileFromCoordinate(e.getX(), e.getY()).getFieldType());
@@ -54,11 +49,12 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 						
 						//tile = new Tile(tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight(), gui.getElementMarked().getFieldType(), gui.getElementMarked().getImage());
 						
-						//changeingTile = gui.getElementMarked().getImage();
+						changeingTile = gui.getElementMarked().getImage();
 						
 						ProductionTile newTile = new ProductionTile(tile,gui.getElementMarked().getFieldType());
 						//newTile.setHooveredBorderThickness(2);
-						
+						newTile.setHooveredBorderColor(Color.blue);
+						newTile.setHoovered(true);
 						
 						gw.getMap().changeField(tile, newTile);
 						
@@ -67,7 +63,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 //						
 						
 						gui.clearMarkedTile();
-						//changeingTile = null;
+						changeingTile = null;
 						tile.setHooveredBorderColor(Color.blue);
 					}
 				}
@@ -145,15 +141,14 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 					
 					if(gui.getElementMarked().getBuildOn(newTile.getFieldType())) {
 						canBuildOnActualField = true;
-						newTile.setHooveredBorderColor(Color.green);
-							
+						newTile.setHooveredBorderColor(Color.green);	
 					}
 
 					else {
 						canBuildOnActualField = false;
 						newTile.setHooveredBorderColor(Color.red);
 					}
-					
+
 					newTile.setHoovered(true);
 				}
 				
@@ -169,7 +164,6 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 			activeTile.setHoovered(false);
 			newTile.setHoovered(false);
 		}
-	
 	}
 
 	@Override
@@ -188,5 +182,4 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 		// TODO Auto-generated method stub
 		
 	}
-
 }
