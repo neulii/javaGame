@@ -32,6 +32,8 @@ public class GameWindow extends Canvas implements GameObject{
 	private BufferStrategy bs;
 	private Graphics graphics;
 	
+	private MaterialManager mm;
+	
 	private Point mousePosition;
 	
 	private InputListener inputListener;
@@ -144,6 +146,7 @@ public class GameWindow extends Canvas implements GameObject{
 		this.setPreferredSize(windowSize);
 		this.setMaximumSize(windowSize);
 		this.setMinimumSize(windowSize);
+		this.setFocusable(true);
 
 		
 		gameWindow.add(this);		
@@ -157,8 +160,10 @@ public class GameWindow extends Canvas implements GameObject{
 	}
 	
 	public void initializeObjects() {
+		mm = new MaterialManager();
+		
 		gameMap = new Map(MAPWIDTH,MAPHEIGHT,TILE_WIDTH,TILE_HEIGHT,mapString);
-		gui = new GUI(this);
+		gui = new GUI(this, mm);
 		mousePosition = new Point(0,0);
 	}
 	
@@ -185,4 +190,9 @@ public class GameWindow extends Canvas implements GameObject{
 	public boolean getMouseOverMenu() {
 		return isMouseOverMenu;
 	}
+	
+	public MaterialManager getMaterialManager() {
+		return mm;
+	}
+	
 }
