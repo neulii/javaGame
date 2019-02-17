@@ -11,7 +11,7 @@ public class Tile implements GameObject {
 	private int width;
 	private int height;
 	
-	private int resources = 500;
+	private int resources = 1000000000;
 
 	private boolean isHoovered = false;
 
@@ -32,7 +32,6 @@ public class Tile implements GameObject {
 		this.fieldType = fieldType;
 	}
 	
-	
 	public Tile(Tile tile) {
 		
 		this.height = tile.getHeight();
@@ -41,7 +40,6 @@ public class Tile implements GameObject {
 		this.y = tile.getY();
 		this.image = tile.getImage();
 		this.fieldType = tile.getFieldType();
-		
 	}
 	
 	public BufferedImage getImage() {
@@ -79,13 +77,10 @@ public class Tile implements GameObject {
 				(p.getY() >= y) 		&&
 				(p.getY()<= y+height)		
 		) {
-			
-//			System.out.println("inside");
 			tempInside = true;
 		}
 		
 		return tempInside;
-
 	}
 	
 	@Override
@@ -98,12 +93,9 @@ public class Tile implements GameObject {
 			g.setColor(borderColor);
 			
 			for(int i = 0; i< borderThickness; i++) {
-				
 				g.drawRect(x+i, y+i, width-1-2*i, height-1-2*i);
-				
 			}
 		}
-		
 		
 		//when tile is hoovered and hoovered color is ist then paint border
 		
@@ -159,11 +151,10 @@ public class Tile implements GameObject {
 	}
 	
 	public void subtractResource(int resource) {
-		resources =- resource;
+		resources -= 1;
 	}
 	
 	public int getHooverBorderThickness() {
 		return hooveredBorderThickness;
 	}
-	
 }
