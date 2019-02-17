@@ -10,6 +10,8 @@ public class GUI implements GameObject{
 	private boolean debugViewActive = true;
 	
 	private GameWindow gw;	
+	private MaterialManager mm;
+	
 	private int menuTileWidth = 50;
 	private int menuTileHeight = 50;
 	
@@ -17,12 +19,14 @@ public class GUI implements GameObject{
 	private ProductionTile hooveredTile = null;
 	
 	private ArrayList<ProductionTile> menuTiles = new ArrayList<ProductionTile>();
+	private ArrayList<Tile> symbolTiles = new ArrayList<Tile>();
 	
-	public GUI(GameWindow gw) {
+	public GUI(GameWindow gw, MaterialManager mm) {
 		this.gw = gw;
+		this.mm = mm;
 		
-		ProductionTile coalMine = new ProductionTile(new Tile(10,70,menuTileWidth, menuTileHeight, FieldType.COAL,ImageLoader.loadImage("/coalMineField.png")), FieldType.COAL_MINE);
-		ProductionTile ironOreMine = new ProductionTile(new Tile(10,70+50+10,menuTileWidth, menuTileHeight, FieldType.IRON_ORE,ImageLoader.loadImage("/ironOreMineField.png")), FieldType.IRON_ORE_MINE);
+		ProductionTile coalMine = new ProductionTile(new Tile(10,70,menuTileWidth, menuTileHeight, FieldType.COAL,ImageLoader.loadImage("/coalMineField.png")), FieldType.COAL_MINE, mm);
+		ProductionTile ironOreMine = new ProductionTile(new Tile(10,70+50+10,menuTileWidth, menuTileHeight, FieldType.IRON_ORE,ImageLoader.loadImage("/ironOreMineField.png")), FieldType.IRON_ORE_MINE, mm);
 		
 		menuTiles.add(coalMine);
 		menuTiles.add(ironOreMine);
@@ -33,6 +37,16 @@ public class GUI implements GameObject{
 			tiles.setHooveredBorderThickness(5);
 			tiles.setBorderThickness(2);
 		}
+
+		Tile coalSymbol;
+		
+		coalSymbol = new Tile(20,200,30,30,ImageLoader.loadImage("/coalSymbol.png"));
+		symbolTiles.add(coalSymbol);
+		
+		
+		
+		
+		
 	}
 	
 	@Override
@@ -68,6 +82,17 @@ public class GUI implements GameObject{
 		for (Tile tile : menuTiles) {
 			tile.render(g);
 		}
+		
+		//render symbols
+		
+		for(Tile tile : symbolTiles) {
+			tile.render(g);
+		}
+		
+		//Coal Font
+		g.setColor(Color.black);
+		g.setFont(new Font("default",Font.BOLD,20));
+		g.drawString(Integer.toString((int)(gw.getMaterialManager().getcoal())),60,220);
 	}
 
 	@Override
