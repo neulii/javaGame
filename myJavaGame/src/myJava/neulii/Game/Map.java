@@ -160,7 +160,7 @@ public class Map implements GameObject {
 		return index;
 	}
 	
-	public void changeField(Tile oldField, Tile newField) {
+	public void changeField(final Tile oldField,final Tile newField) {
 		int index = mapTiles.indexOf(oldField);
 		mapTiles.set(index, newField);
 	}

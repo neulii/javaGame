@@ -50,8 +50,6 @@ public class GUI implements GameObject{
 		
 			//showField information
 		
-			
-			
 			String fieldType = tempField.getFieldType().toString(); 
 					
 	

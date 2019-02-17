@@ -150,7 +150,7 @@ public class Tile implements GameObject {
 		return resources;
 	}
 	
-	public void subtractResource(int resource) {
+	public void subtractResource(double resource) {
 		
 		if(this.resources > 0) {
 			this.resources = this.resources-resource;			

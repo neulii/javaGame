@@ -3,9 +3,8 @@ package myJava.neulii.Game;
 public class ProductionTile extends Tile {
 
 	private FieldType buildOn;
-	private int minedAmount = 0;
-	private int miningPerSecond = 2;
-	
+	private double minedAmount = 0;
+	private double miningPerSecond = 3;	
 	
 	public ProductionTile(Tile tile, FieldType fieldType) {
 		super(tile);
@@ -27,10 +26,33 @@ public class ProductionTile extends Tile {
 	@Override
 	public void update(long dT) {
 		//TODO funktion fuer production tile udpate
-		subtractResource(1);
+		//subtractResource(1);
 		//System.out.println(getFieldType()+ "   update   " + getResources());
 		
-		System.out.println(dT);
 		
+		
+		double minedThisUpdate = dT * miningPerSecond /1_000_000_000;
+		System.out.println(minedThisUpdate);
+		
+		minedAmount = minedAmount + minedThisUpdate;
+		
+		subtractResource(minedThisUpdate);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		//System.out.println(dT);
+		
+	}
+	
+	public double getMinedAmount() {
+		return minedAmount;
 	}
 }
