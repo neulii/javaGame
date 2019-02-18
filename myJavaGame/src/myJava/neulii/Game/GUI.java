@@ -24,7 +24,7 @@ public class GUI implements GameObject{
 	public GUI(GameWindow gw, MaterialManager mm) {
 		this.gw = gw;
 		this.mm = mm;
-		
+		//testcomment
 		ProductionTile coalMine = new ProductionTile(new Tile(10,70,menuTileWidth, menuTileHeight, FieldType.COAL,ImageLoader.loadImage("/coalMineField.png")), FieldType.COAL_MINE, mm);
 		ProductionTile ironOreMine = new ProductionTile(new Tile(10,70+50+10,menuTileWidth, menuTileHeight, FieldType.IRON_ORE,ImageLoader.loadImage("/ironOreMineField.png")), FieldType.IRON_ORE_MINE, mm);
 		
