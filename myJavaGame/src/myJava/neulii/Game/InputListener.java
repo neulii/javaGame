@@ -44,7 +44,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 
 				//when buildable on field
 				if(gui.getElementMarked()!=null) {
-					System.out.println(gui.getElementMarked().getFieldType() + "      "  + gw.getMap().getTileFromCoordinate(e.getX(), e.getY()).getFieldType());
+					//System.out.println(gui.getElementMarked().getFieldType() + "      "  + gw.getMap().getTileFromCoordinate(e.getX(), e.getY()).getFieldType());
 					if(canBuildOnActualField) {
 						
 						//tile = new Tile(tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight(), gui.getElementMarked().getFieldType(), gui.getElementMarked().getImage());
