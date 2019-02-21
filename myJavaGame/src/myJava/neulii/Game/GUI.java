@@ -40,12 +40,15 @@ public class GUI implements GameObject{
 
 		Tile coalSymbol;
 		Tile ironOreSymbol;
+		Tile moneySymbol;
 		
-		coalSymbol = new Tile(20,200,30,30,ImageLoader.loadImage("/coalSymbol.png"));
-		ironOreSymbol = new Tile(20,240,30,30,ImageLoader.loadImage("/ironOreSymbol.png"));
+		coalSymbol = new Tile(20,240,30,30,ImageLoader.loadImage("/coalSymbol.png"));
+		ironOreSymbol = new Tile(20,280,30,30,ImageLoader.loadImage("/ironOreSymbol.png"));
+		moneySymbol = new Tile(20,200,30,30,ImageLoader.loadImage("/moneySymbol.png"));
 		
 		symbolTiles.add(coalSymbol);
 		symbolTiles.add(ironOreSymbol);
+		symbolTiles.add(moneySymbol);
 	}
 	
 	@Override
@@ -87,10 +90,14 @@ public class GUI implements GameObject{
 		//Coal Info
 		g.setColor(Color.black);
 		g.setFont(new Font("default",Font.BOLD,20));
-		g.drawString(Integer.toString((int)(mm.getcoal())),60,220);
+		g.drawString(Integer.toString((int)(mm.getcoal())),60,260);
 	
 		//iron_ore info
-		g.drawString(Integer.toString((int)(mm.getIronOre())),60,260);
+		g.drawString(Integer.toString((int)(mm.getIronOre())),60,300);
+		
+		//money_info
+		g.drawString(Integer.toString((int)(mm.getMoney())),60,220);
+		
 	
 	}
 
