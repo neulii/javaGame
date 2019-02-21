@@ -100,18 +100,22 @@ public class GUI implements GameObject{
 		//money_info
 		g.drawString(Integer.toString((int)(mm.getMoney())),60,220);
 		
-		//TODO money tip
+		
 		//show warning when money is enough
 		if(moneyWarning) {
 			int x = gw.getMousePos().x;
-			int y = gw.getMousePos().y;
+			int y = gw.getMousePos().y+40;
 			
+			//when mouse is in the bottom of gamewindow
 			if(y+30>gw.getHeight()) {
 				y=gw.getHeight()-30;
 			}
+			else {
+				y = gw.getMousePos().y+40;
+			}
 			
 			if(gw.getMousePos()!=null) {
-				g.drawString("Check Money!!",x-50, y+50);			
+				g.drawString("Check Money!!",x-60, y);			
 				
 			}
 		}
