@@ -35,7 +35,6 @@ public class ProductionTile extends Tile {
 		
 		if(getResources()>=0) {
 			double minedThisUpdate = dT * miningPerSecond /1_000_000_000;
-			System.out.println(minedAmount);
 			minedAmount = minedAmount + minedThisUpdate;
 			
 			//just add one when one is ready mined
@@ -59,10 +58,7 @@ public class ProductionTile extends Tile {
 				subtractResource(1);
 			}
 			
-		}
-		
-		//System.out.println(dT);
-		
+		}		
 	}
 	
 	public double getMinedAmount() {

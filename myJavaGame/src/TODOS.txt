@@ -8,6 +8,9 @@ TODOS
 - mapgenerator
 
 - upgrades für produktionsgebäude
+- fenster für produktions tiles
+
+- animation der production tiles wenn sie gestoppt werden
 
 - make gui for production tiles -> to load ores and things
 
