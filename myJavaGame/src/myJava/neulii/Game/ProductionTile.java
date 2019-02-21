@@ -5,6 +5,9 @@ public class ProductionTile extends Tile {
 	private FieldType buildOn;
 	private double minedAmount = 0;
 	private double miningPerSecond = 1;	
+	
+	private int costOfTile = 100;
+	
 	private MaterialManager mm;
 	
 	public ProductionTile(Tile tile, FieldType fieldType, MaterialManager mm) {
@@ -63,5 +66,9 @@ public class ProductionTile extends Tile {
 	
 	public double getMinedAmount() {
 		return minedAmount;
+	}
+	
+	public int getCostOfTile() {
+		return costOfTile;
 	}
 }

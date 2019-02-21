@@ -9,6 +9,7 @@ public class MaterialManager {
 	public MaterialManager() {
 		this.coal = 0;
 		this.iron_ore = 0;
+		this.money = 0;
 	}
 	
 	public void addMaterials(int coal, int iron_ore) {
