@@ -44,8 +44,9 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 
 				//when buildable on field
 				if(gui.getElementMarked()!=null) {
-					//System.out.println(gui.getElementMarked().getFieldType() + "      "  + gw.getMap().getTileFromCoordinate(e.getX(), e.getY()).getFieldType());
-					if(canBuildOnActualField) {
+					
+					//when tile can build on actual field and money is enough
+					if(canBuildOnActualField && (gui.getElementMarked().getCostOfTile()<=gw.getMaterialManager().getMoney())) {
 						
 						//tile = new Tile(tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight(), gui.getElementMarked().getFieldType(), gui.getElementMarked().getImage());
 						
@@ -139,9 +140,20 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 					//setpicture from selected 
 					newTile.setImage(gui.getElementMarked().getImage());
 					
-					if(gui.getElementMarked().getBuildOn(newTile.getFieldType())) {
-						canBuildOnActualField = true;
-						newTile.setHooveredBorderColor(Color.green);	
+					
+					//when tile can build on actual field and money is enough
+					if(gui.getElementMarked().getBuildOn(newTile.getFieldType()) ) {
+						
+						//if enough money
+						if(gui.getElementMarked().getCostOfTile()<=gw.getMaterialManager().getMoney()) {
+							
+							canBuildOnActualField = true;
+							newTile.setHooveredBorderColor(Color.green);
+						}
+						
+						else
+							newTile.setHooveredBorderColor(Color.ORANGE);	
+					
 					}
 
 					else {
