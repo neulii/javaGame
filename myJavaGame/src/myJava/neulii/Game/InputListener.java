@@ -62,6 +62,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 //						tile.setImage(gui.getElementMarked().getImage());				
 //						tile.setFieldType(gui.getElementMarked().getFieldType());
 //						
+						gw.getMaterialManager().subMoney(newTile.getCostOfTile());
 						
 						gui.clearMarkedTile();
 						changeingTile = null;
