@@ -195,4 +195,8 @@ public class GameWindow extends Canvas implements GameObject{
 		return mm;
 	}
 	
+	public int getHeight() {
+		return this.windowHeight;
+	}
+	
 }
