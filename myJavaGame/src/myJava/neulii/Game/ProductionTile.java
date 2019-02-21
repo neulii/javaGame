@@ -35,24 +35,30 @@ public class ProductionTile extends Tile {
 		
 		if(getResources()>=0) {
 			double minedThisUpdate = dT * miningPerSecond /1_000_000_000;
-			
+			System.out.println(minedAmount);
 			minedAmount = minedAmount + minedThisUpdate;
+			
+			//just add one when one is ready mined
 				
-			switch (getFieldType()) {
+			if(minedAmount>=1) {
+				
+				switch (getFieldType()) {
 				case COAL_MINE:
 					
-					mm.addMaterials(minedThisUpdate, 0);
+					mm.addMaterials(1, 0);
 					break;
-		
+					
 				case IRON_ORE_MINE:
-					mm.addMaterials(0, minedThisUpdate);
+					mm.addMaterials(0, 1);
 					break;
 					
 				default:
 					break;
 				}
+				minedAmount = 0;
+				subtractResource(1);
+			}
 			
-			subtractResource(minedThisUpdate);
 		}
 		
 		//System.out.println(dT);
