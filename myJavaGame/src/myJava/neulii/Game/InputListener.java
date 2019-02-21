@@ -7,6 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JOptionPane;
 import javax.swing.event.MouseInputListener;
 
 public class InputListener extends MouseAdapter implements MouseInputListener, KeyListener{
@@ -163,8 +164,6 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 							newTile.setHooveredBorderColor(Color.ORANGE);	
 							gui.showMoneyWarning(true);
 						}
-						
-					
 					}
 
 					else {
@@ -185,10 +184,8 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 		}
 		//mouse is leaving field
 		else {
-			
 			activeTile.setHoovered(false);
 			newTile.setHoovered(false);
-			
 		}
 	}
 
@@ -199,15 +196,23 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode()==123)
+		//when pressed F12 activate debugview
+		
+		if(e.getKeyCode()==KeyEvent.VK_F12)
 			gui.switchDebugView();
+
+		String cheatInput = "";
+		if(e.getKeyCode()==KeyEvent.VK_ENTER) {
+			cheatInput = JOptionPane.showInputDialog(gw, "Cheat-Code eingeben:", "Cheat Konsole", JOptionPane.INFORMATION_MESSAGE);
+		}
+		System.out.println(cheatInput);
+		
 		
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 }

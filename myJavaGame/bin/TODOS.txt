@@ -1,0 +1,24 @@
+TODOS
+
+- find new pictures for symbols
+
+- produktionsstätte animieren
+
+- map kann sich bewegen
+- mapgenerator
+
+- upgrades für produktionsgebäude
+- fenster für produktions tiles
+
+- animation der production tiles wenn sie gestoppt werden
+
+- make gui for production tiles -> to load ores and things
+
+- hochofen implementieren
+
+- game points and achievements
+
+- when building and no money show in gui helpt text
+
+- integrate cheatmode/testmode
+
