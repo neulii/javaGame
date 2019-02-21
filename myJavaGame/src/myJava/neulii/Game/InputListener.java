@@ -199,7 +199,9 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		gui.switchDebugView();
+		if(e.getKeyCode()==123)
+			gui.switchDebugView();
+		
 		
 	}
 
