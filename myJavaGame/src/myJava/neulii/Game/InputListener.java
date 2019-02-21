@@ -74,10 +74,15 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 		//Right Mousebutton
 		
 		if(e.getButton()==MouseEvent.BUTTON3) {
-			if(changeingTile!=null)
+			if(changeingTile!=null) {
+				gui.clearMarkedTile();
+				tile.setHooveredBorderColor(Color.blue);				
 				tile.setImage(changeingTile);
-			gui.clearMarkedTile();
+				gui.showMoneyWarning(false);
+				
+			}
 			canBuildOnActualField= false;
+			
 		}
 	}
 
@@ -132,6 +137,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 					if(changeingTile!=null) {
 					
 						activeTile.setImage(changeingTile);
+						
 					}
 					
 					//save old picture
@@ -151,14 +157,19 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 							newTile.setHooveredBorderColor(Color.green);
 						}
 						
-						else
+						else {
+							
 							newTile.setHooveredBorderColor(Color.ORANGE);	
+							gui.showMoneyWarning(true);
+						}
+						
 					
 					}
 
 					else {
 						canBuildOnActualField = false;
 						newTile.setHooveredBorderColor(Color.red);
+						gui.showMoneyWarning(false);
 					}
 
 					newTile.setHoovered(true);
@@ -167,6 +178,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 				if(activeTile!=null) {
 					activeTile.setHoovered(false);
 					activeTile.setHooveredBorderColor(Color.blue);
+					
 				}
 			}
 		}
@@ -175,6 +187,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 			
 			activeTile.setHoovered(false);
 			newTile.setHoovered(false);
+			
 		}
 	}
 

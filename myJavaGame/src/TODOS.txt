@@ -18,5 +18,7 @@ TODOS
 
 - game points and achievements
 
+- when building and no money show in gui helpt text
+
 
 

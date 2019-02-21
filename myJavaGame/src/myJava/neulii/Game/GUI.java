@@ -9,6 +9,8 @@ public class GUI implements GameObject{
 
 	private boolean debugViewActive = true;
 	
+	private boolean moneyWarning = false;
+	
 	private GameWindow gw;	
 	private MaterialManager mm;
 	
@@ -75,7 +77,7 @@ public class GUI implements GameObject{
 			g.drawString(infoString1 ,gw.getWidth()-200,20);
 			g.drawString(infoString2 ,gw.getWidth()-200,40);
 		}
-
+		
 		//render menu
 		for (Tile tile : menuTiles) {
 			tile.render(g);
@@ -98,6 +100,12 @@ public class GUI implements GameObject{
 		//money_info
 		g.drawString(Integer.toString((int)(mm.getMoney())),60,220);
 		
+
+		
+		if(moneyWarning) {
+			if(gw.getMousePos()!=null)
+				g.drawString("Check Money!!",(gw.getMousePos().x), (int)gw.getMousePos().y);			
+		}
 	
 	}
 
@@ -129,6 +137,11 @@ public class GUI implements GameObject{
 				hooveredTile = null;
 			}
 		}
+	}
+	
+	public void showMoneyWarning(boolean warning) {
+		moneyWarning = warning;	
+		
 	}
 	
 	public void setHooveredTileMarked() {
