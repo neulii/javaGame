@@ -20,5 +20,5 @@ TODOS
 
 - when building and no money show in gui helpt text
 
-
+- integrate cheatmode/testmode
 
