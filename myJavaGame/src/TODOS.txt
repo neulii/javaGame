@@ -16,5 +16,7 @@ TODOS
 
 - hochofen implementieren
 
+- game points and achievements
+
 
 
