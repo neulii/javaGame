@@ -20,6 +20,9 @@ public class ImageLoader {
 			 image = ImageIO.read(ImageLoader.class.getResource(fileName));
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.out.println("Fehler beim Bilder laden!! ");
+			System.out.println("Programm wird beednet!!");
+			System.exit(1);
 		}
 		
 		

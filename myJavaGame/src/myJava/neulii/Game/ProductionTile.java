@@ -4,7 +4,7 @@ public class ProductionTile extends Tile {
 
 	private FieldType buildOn;
 	private double minedAmount = 0;
-	private double miningPerSecond = 0.2;	
+	private double miningPerSecond = 1;	
 	private MaterialManager mm;
 	
 	public ProductionTile(Tile tile, FieldType fieldType, MaterialManager mm) {

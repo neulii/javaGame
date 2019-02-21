@@ -1,6 +1,6 @@
 TODOS
 
-- updates per second limit 60
+- find new pictures for symbols
 
 - produktionsstätte animieren
 
@@ -13,6 +13,8 @@ TODOS
 - animation der production tiles wenn sie gestoppt werden
 
 - make gui for production tiles -> to load ores and things
+
+- hochofen implementieren
 
 
 
