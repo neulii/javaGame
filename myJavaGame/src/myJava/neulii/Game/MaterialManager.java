@@ -9,13 +9,12 @@ public class MaterialManager {
 	public MaterialManager() {
 		this.coal = 0;
 		this.iron_ore = 0;
-		this.money = 200;
+		this.money = 100;
 	}
 	
 	public void addMaterials(int coal, int iron_ore) {
 		this.coal = this.coal + coal;
-		this.iron_ore = this.iron_ore + iron_ore;
-		
+		this.iron_ore = this.iron_ore + iron_ore;	
 	}
 	
 	public int getIronOre() {
