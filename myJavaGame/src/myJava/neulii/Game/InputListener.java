@@ -205,7 +205,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 		if(e.getKeyCode()==KeyEvent.VK_ENTER) {
 			cheatInput = JOptionPane.showInputDialog(gw, "Cheat-Code eingeben:", "Cheat Konsole", JOptionPane.INFORMATION_MESSAGE);
 		}
-		CheatAction.doCheat(cheatInput);
+		CheatAction.doCheat(gw, cheatInput);
 		
 		
 		
