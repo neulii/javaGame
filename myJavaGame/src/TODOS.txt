@@ -4,10 +4,14 @@ TODOS
 
 - produktionsstätte animieren
 
+- market for buy and rebuing things
+
 - map kann sich bewegen
+
 - mapgenerator
 
 - upgrades für produktionsgebäude
+
 - fenster für produktions tiles
 
 - animation der production tiles wenn sie gestoppt werden
@@ -18,7 +22,7 @@ TODOS
 
 - game points and achievements
 
-- when building and no money show in gui helpt text
 
-- integrate cheatmode/testmode
+
+
 
