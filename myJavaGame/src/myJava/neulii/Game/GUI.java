@@ -61,16 +61,27 @@ public class GUI implements GameObject{
 			//show FPS
 
 			Tile tempField = gw.getMap().getTileFromCoordinate(gw.getMousePos().x,gw.getMousePos().y);
-			
+		
 			g.setFont(new Font("default",Font.BOLD,20));
 			g.drawString("FPS: " + Integer.toString(gw.getActualFrames()),0,20);
 		
 			//showField information
 		
-			String fieldType = tempField.getFieldType().toString(); 
+			String fieldType = null;
+			String showResource = null;
+			
+			if(tempField!=null) {
+				
+				fieldType = tempField.getFieldType().toString(); 
+				showResource = Double.toString(tempField.getResources());
+			}
+			else {
+				showResource = "0";
+				fieldType = "none";
+			}
 					
 			String infoString1 = "FieldType: " + fieldType +  " ";
-			String infoString2 = "Resource:  " + tempField.getResources() + " " ;
+			String infoString2 = "Resource:  " + showResource + " " ;
 			
 			g.setColor(Color.black);
 			g.setFont(new Font("default",Font.BOLD,12));
