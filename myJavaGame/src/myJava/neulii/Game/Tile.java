@@ -171,4 +171,9 @@ public class Tile implements GameObject {
 	public int getHooverBorderThickness() {
 		return hooveredBorderThickness;
 	}
+	
+	public void moveTile(int x, int y) {
+		this.x = this.x+x;
+		this.y = this.y+y;
+	}
 }

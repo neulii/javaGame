@@ -24,6 +24,13 @@ public class Map implements GameObject {
 	//private int fieldWidth;
 	//private int fieldHeight;
 
+	private boolean moveRight;
+	private boolean moveLeft;
+	private boolean moveUp;
+	private boolean moveDown;
+	
+	
+	
 	private ArrayList<Tile> mapTiles = new ArrayList<Tile>();
 
 	/**
@@ -136,6 +143,18 @@ public class Map implements GameObject {
 	
 	//TODO
 	public void update(long dT) {
+		
+		if(moveLeft) {
+			
+			moveMap(-2, 0);
+			
+		}
+		
+		if(moveRight) {
+			moveMap(2,0);
+		}
+		
+		
 		for (Tile tile : mapTiles) {
 			tile.update(dT);
 		}
@@ -165,4 +184,22 @@ public class Map implements GameObject {
 		mapTiles.set(index, newField);
 	}
 	
+	private void moveMap(int x, int y) {
+		for (Tile tile : mapTiles) {
+			
+			tile.moveTile(x, y);
+			
+		}
+		
+	}
+	
+	public void moveRight(boolean right) {
+	
+		moveRight = right;
+	}
+	
+	public void moveLeft(boolean left) {
+		
+		moveLeft = left;
+	}
 }

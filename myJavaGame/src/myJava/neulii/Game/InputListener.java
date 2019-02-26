@@ -84,7 +84,6 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 				
 			}
 			canBuildOnActualField= false;
-			
 		}
 	}
 
@@ -207,12 +206,27 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 			CheatAction.doCheat(gw, cheatInput);
 		}
 		
-		
-		
+		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
+			gw.getMap().moveRight(true);
+			
+		}
+		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
+			gw.getMap().moveLeft(true);
+
+		}
+	
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
+			gw.getMap().moveRight(false);
+			
+		}
 		
+		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
+			gw.getMap().moveLeft(false);
+			
+		}
 	}
 }
