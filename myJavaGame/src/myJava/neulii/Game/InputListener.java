@@ -17,6 +17,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 	private BufferedImage changeingTile = null;
 	private GameWindow gw;
 	private GUI gui;
+	private MouseEvent me;
 	
 	private boolean canBuildOnActualField = false; 
 		
@@ -27,6 +28,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		
 		Tile tile = gw.getMap().getTileFromCoordinate(e.getX(), e.getY());		
 	
 		//left Mousebutton
@@ -114,6 +116,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
+		me = e;
 		gw.setMousePos(e.getPoint());
 		
 		
@@ -195,6 +198,8 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		mouseMoved(me);
+
 		//when pressed F12 activate debugview
 		
 		if(e.getKeyCode()==KeyEvent.VK_F12)
@@ -210,8 +215,19 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 			gw.getMap().moveRight(true);
 			
 		}
+		
 		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
 			gw.getMap().moveLeft(true);
+
+		}
+		
+		if(e.getKeyCode()==KeyEvent.VK_UP) {
+			gw.getMap().moveUp(true);
+
+		}
+		
+		if(e.getKeyCode()==KeyEvent.VK_DOWN) {
+			gw.getMap().moveDown(true);
 
 		}
 	
@@ -219,6 +235,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
 			gw.getMap().moveRight(false);
 			
@@ -226,7 +243,17 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 		
 		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
 			gw.getMap().moveLeft(false);
-			
 		}
+	
+		if(e.getKeyCode()==KeyEvent.VK_UP) {
+			gw.getMap().moveUp(false);
+
+		}
+		
+		if(e.getKeyCode()==KeyEvent.VK_DOWN) {
+			gw.getMap().moveDown(false);
+
+		}
+	
 	}
 }

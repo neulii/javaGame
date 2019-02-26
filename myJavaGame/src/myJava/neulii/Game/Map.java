@@ -29,7 +29,7 @@ public class Map implements GameObject {
 	private boolean moveUp;
 	private boolean moveDown;
 	
-	
+	private int scrollSpeed = 3;
 	
 	private ArrayList<Tile> mapTiles = new ArrayList<Tile>();
 
@@ -140,20 +140,23 @@ public class Map implements GameObject {
 	}
 
 	@Override
-	
-	//TODO
 	public void update(long dT) {
 		
 		if(moveLeft) {
-			
-			moveMap(-2, 0);
-			
+			moveMap(scrollSpeed, 0);
 		}
 		
 		if(moveRight) {
-			moveMap(2,0);
+			moveMap(-scrollSpeed ,0);
 		}
 		
+		if(moveUp) {
+			moveMap(0, scrollSpeed);
+		}
+		
+		if(moveDown) {
+			moveMap(0, -scrollSpeed);
+		}
 		
 		for (Tile tile : mapTiles) {
 			tile.update(dT);
@@ -188,18 +191,22 @@ public class Map implements GameObject {
 		for (Tile tile : mapTiles) {
 			
 			tile.moveTile(x, y);
-			
 		}
-		
 	}
 	
 	public void moveRight(boolean right) {
-	
 		moveRight = right;
 	}
 	
 	public void moveLeft(boolean left) {
-		
 		moveLeft = left;
+	}
+	
+	public void moveUp(boolean up) {
+		moveUp = up;
+	}
+	
+	public void moveDown(boolean down) {
+		moveDown = down;
 	}
 }
