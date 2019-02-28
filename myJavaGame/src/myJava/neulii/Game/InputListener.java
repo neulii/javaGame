@@ -211,49 +211,40 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 			CheatAction.doCheat(gw, cheatInput);
 		}
 		
-		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
+		if(e.getKeyCode()==KeyEvent.VK_RIGHT || e.getKeyCode()==KeyEvent.VK_D) {
 			gw.getMap().moveRight(true);
-			
 		}
 		
-		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
+		if(e.getKeyCode()==KeyEvent.VK_LEFT || e.getKeyCode()==KeyEvent.VK_A) {
 			gw.getMap().moveLeft(true);
-
 		}
 		
-		if(e.getKeyCode()==KeyEvent.VK_UP) {
+		if(e.getKeyCode()==KeyEvent.VK_UP || e.getKeyCode()==KeyEvent.VK_W) {
 			gw.getMap().moveUp(true);
-
 		}
 		
-		if(e.getKeyCode()==KeyEvent.VK_DOWN) {
+		if(e.getKeyCode()==KeyEvent.VK_DOWN || e.getKeyCode()==KeyEvent.VK_S) {
 			gw.getMap().moveDown(true);
-
 		}
-	
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 
-		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
+		if(e.getKeyCode()==KeyEvent.VK_RIGHT || e.getKeyCode()==KeyEvent.VK_D) {			
 			gw.getMap().moveRight(false);
-			
 		}
 		
-		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
+		if(e.getKeyCode()==KeyEvent.VK_LEFT || e.getKeyCode()==KeyEvent.VK_A) {
 			gw.getMap().moveLeft(false);
 		}
 	
-		if(e.getKeyCode()==KeyEvent.VK_UP) {
+		if(e.getKeyCode()==KeyEvent.VK_UP || e.getKeyCode()==KeyEvent.VK_W) {
 			gw.getMap().moveUp(false);
-
 		}
 		
-		if(e.getKeyCode()==KeyEvent.VK_DOWN) {
+		if(e.getKeyCode()==KeyEvent.VK_DOWN || e.getKeyCode()==KeyEvent.VK_S) {
 			gw.getMap().moveDown(false);
-
 		}
-	
 	}
 }
