@@ -30,11 +30,7 @@ public class ProductionTile extends Tile {
 	}
 	
 	@Override
-	public void update(long dT) {
-		//TODO funktion fuer production tile udpate
-		//subtractResource(1);
-		//System.out.println(getFieldType()+ "   update   " + getResources());
-		
+	public void update(long dT) {	
 		
 		if(getResources()>=0) {
 			double minedThisUpdate = dT * miningPerSecond /1_000_000_000;
