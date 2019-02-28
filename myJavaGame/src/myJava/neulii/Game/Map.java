@@ -141,19 +141,69 @@ public class Map implements GameObject {
 
 	@Override
 	public void update(long dT) {
+		//TODO moving map
 		
-		if(moveLeft) {
-			moveMap((int)(scrollSpeed*dT/1000_000_000), 0);
+		Tile firstTile = mapTiles.get(0);
+		Tile lastTile = mapTiles.get(mapTiles.size()-1);
+		
+		long moveSize = scrollSpeed*dT/1000_000_000;
+		
+		int diffLeft = (int)(firstTile.getX() + moveSize);
+		int diffUp =   (int)(firstTile.getY() + moveSize);
+		int diffRight = (int)(lastTile.getX()+lastTile.getWidth() - moveSize);
+		int diffDown =  (int)(lastTile.getY()+lastTile.getHeight()- moveSize);
+		
+		
+		//moving map left
+		if(moveLeft)
+		{
+			if(diffLeft>0) {
+				moveMap((int) moveSize-diffLeft, 0);
+				System.out.println(diffLeft);
+			}
+		
+			if(diffLeft<=0) {
+				moveMap((int)moveSize,0);
+				System.out.println("movesize");
+			}			
 		}
 		
+		//TODO moveright
 		if(moveRight) {
-			moveMap((int)(-scrollSpeed*dT/1000_000_000) ,0);
+			
+			if(diffRight>width) {
+				moveMap(-(int) moveSize-diffRight, 0);
+				System.out.println(diffLeft);
+			}
+		
+			if(diffRight<=width) {
+				moveMap(-(int)moveSize,0);
+				System.out.println("movesize");
+			}			
+			
+			
+			
+			
+			
+			
+			//moveMap((int)(-scrollSpeed*dT/1000_000_000) ,0);
 		}
 		
+		//Moving map up
 		if(moveUp) {
-			moveMap(0, (int)(scrollSpeed*dT/1000_000_000));
+			
+			if(diffUp>0) {
+				moveMap(0,(int) moveSize-diffUp );
+				System.out.println(diffUp);
+			}
+		
+			if(diffUp<=0) {
+				moveMap(0, (int)moveSize);
+				System.out.println("movesize");
+			}			
 		}
 		
+		//TODO movedown
 		if(moveDown) {
 			moveMap(0, -(int)(scrollSpeed*dT/1000_000_000));
 		}
