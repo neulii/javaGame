@@ -6,8 +6,6 @@ TODOS
 
 - market for buy and rebuing things
 
-- map kann sich bewegen
-
 - mapgenerator
 
 - upgrades für produktionsgebäude
