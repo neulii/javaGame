@@ -29,6 +29,8 @@ public class Map implements GameObject {
 	private boolean moveUp;
 	private boolean moveDown;
 	
+	private GameWindow gw;
+	
 	private int scrollSpeed = 300;
 	
 	private ArrayList<Tile> mapTiles = new ArrayList<Tile>();
@@ -141,7 +143,6 @@ public class Map implements GameObject {
 
 	@Override
 	public void update(long dT) {
-		//TODO moving map
 		
 		Tile firstTile = mapTiles.get(0);
 		Tile lastTile = mapTiles.get(mapTiles.size()-1);
@@ -159,34 +160,23 @@ public class Map implements GameObject {
 		{
 			if(diffLeft>0) {
 				moveMap((int) moveSize-diffLeft, 0);
-				System.out.println(diffLeft);
 			}
 		
 			if(diffLeft<=0) {
 				moveMap((int)moveSize,0);
-				System.out.println("movesize");
 			}			
 		}
 		
-		//TODO moveright
 		if(moveRight) {
+			//System.out.println("point right: " + (lastTile.getX()+lastTile.getWidth()) + "    WindowWidth:  " + gw.getWidth() + "   diff:"+ diffRight);
 			
-			if(diffRight>width) {
-				moveMap(-(int) moveSize-diffRight, 0);
-				System.out.println(diffLeft);
+			if(diffRight>gw.getWidth()) {
+				moveMap(-(int) moveSize, 0);
 			}
 		
-			if(diffRight<=width) {
-				moveMap(-(int)moveSize,0);
-				System.out.println("movesize");
+			if(diffRight<=gw.getWidth()) {
+				moveMap(-(int)moveSize-diffRight+gw.getWidth(),0);
 			}			
-			
-			
-			
-			
-			
-			
-			//moveMap((int)(-scrollSpeed*dT/1000_000_000) ,0);
 		}
 		
 		//Moving map up
@@ -194,19 +184,23 @@ public class Map implements GameObject {
 			
 			if(diffUp>0) {
 				moveMap(0,(int) moveSize-diffUp );
-				System.out.println(diffUp);
 			}
 		
 			if(diffUp<=0) {
 				moveMap(0, (int)moveSize);
-				System.out.println("movesize");
 			}			
 		}
 		
-		//TODO movedown
 		if(moveDown) {
-			moveMap(0, -(int)(scrollSpeed*dT/1000_000_000));
+			if(diffDown>gw.getHeight()) {
+				moveMap(0,-(int) moveSize );
+			}
+		
+			if(diffDown<=gw.getHeight()) {
+				moveMap(0, -(int)moveSize-diffDown+gw.getHeight());
+			}		
 		}
+		
 		
 		for (Tile tile : mapTiles) {
 			tile.update(dT);
@@ -244,19 +238,23 @@ public class Map implements GameObject {
 		}
 	}
 	
-	public void moveRight(boolean right) {
+	public void moveRight(boolean right, GameWindow gw) {
 		moveRight = right;
+		this.gw = gw;
 	}
 	
-	public void moveLeft(boolean left) {
+	public void moveLeft(boolean left, GameWindow gw) {
 		moveLeft = left;
+		this.gw = gw;
 	}
 	
-	public void moveUp(boolean up) {
+	public void moveUp(boolean up, GameWindow gw) {
 		moveUp = up;
+		this.gw = gw;
 	}
 	
-	public void moveDown(boolean down) {
+	public void moveDown(boolean down, GameWindow gw) {
 		moveDown = down;
+		this.gw = gw;
 	}
 }

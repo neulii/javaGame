@@ -123,7 +123,8 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 			newTile = gw.getMap().getTileFromCoordinate(e.getX(), e.getY());
 			
 			if(newTile==activeTile) {
-				newTile.setHoovered(true);
+				if(newTile!=null)
+					newTile.setHoovered(true);
 			}
 			
 			//when new field becomes active
@@ -208,19 +209,19 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 		}
 		
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT || e.getKeyCode()==KeyEvent.VK_D) {
-			gw.getMap().moveRight(true);
+			gw.getMap().moveRight(true, gw);
 		}
 		
 		if(e.getKeyCode()==KeyEvent.VK_LEFT || e.getKeyCode()==KeyEvent.VK_A) {
-			gw.getMap().moveLeft(true);
+			gw.getMap().moveLeft(true,gw);
 		}
 		
 		if(e.getKeyCode()==KeyEvent.VK_UP || e.getKeyCode()==KeyEvent.VK_W) {
-			gw.getMap().moveUp(true);
+			gw.getMap().moveUp(true,gw);
 		}
 		
 		if(e.getKeyCode()==KeyEvent.VK_DOWN || e.getKeyCode()==KeyEvent.VK_S) {
-			gw.getMap().moveDown(true);
+			gw.getMap().moveDown(true,gw);
 		}
 	}
 
@@ -228,19 +229,19 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 	public void keyReleased(KeyEvent e) {
 
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT || e.getKeyCode()==KeyEvent.VK_D) {			
-			gw.getMap().moveRight(false);
+			gw.getMap().moveRight(false,gw);
 		}
 		
 		if(e.getKeyCode()==KeyEvent.VK_LEFT || e.getKeyCode()==KeyEvent.VK_A) {
-			gw.getMap().moveLeft(false);
+			gw.getMap().moveLeft(false,gw);
 		}
 	
 		if(e.getKeyCode()==KeyEvent.VK_UP || e.getKeyCode()==KeyEvent.VK_W) {
-			gw.getMap().moveUp(false);
+			gw.getMap().moveUp(false,gw);
 		}
 		
 		if(e.getKeyCode()==KeyEvent.VK_DOWN || e.getKeyCode()==KeyEvent.VK_S) {
-			gw.getMap().moveDown(false);
+			gw.getMap().moveDown(false,gw);
 		}
 	}
 }
