@@ -1,5 +1,7 @@
 package myJava.neulii.Game;
 
+import java.util.Random;
+
 public class MapStringGenerator {
 	
 	private int width;
@@ -32,8 +34,50 @@ public class MapStringGenerator {
 		
 	}
 	
+	public int[] getMapString() {
+		return mapString;
+	}
+	
 	public void setCoal(int coal) {
 		
+		Random r = new Random();
+		
+		int fieldsCreated = 0;
+		
+		
+		int coalFields = (int)(stringLength*coal/100);
+		
+		for(int i = 0;i<coalFields; i++) {
+		
+			while(fieldsCreated<=coalFields) {
+				
+				int index = r.nextInt(stringLength);
+				
+				if(mapString[index]==1) {
+					System.out.println("nexte");
+					break;
+					
+				}
+				else {
+					mapString[index] = 1;
+					fieldsCreated++;
+					System.out.println("create");
+				}
+				
+				
+				
+			}
+			
+			
+			
+		}
+		
+		printMapStringToConsole();
+		
+				
+				
+		
+	
 	}
 	
 	public void setIronOre(int ironOre) {

@@ -23,3 +23,5 @@ TODOS
 - neue Produktionsgebäude
 
 - zooming the map
+
+- change map with cheat

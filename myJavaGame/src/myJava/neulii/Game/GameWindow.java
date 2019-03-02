@@ -166,9 +166,13 @@ public class GameWindow extends Canvas implements GameObject{
 	public void initializeObjects() {
 		mm = new MaterialManager();
 		
-		MapStringGenerator mapStringGen = new MapStringGenerator(20, 20);
+		MapStringGenerator mapStringGen = new MapStringGenerator(MAPWIDTH, MAPHEIGHT);
 		
-		mapStringGen.printMapStringToConsole();
+		mapStringGen.setCoal(100);
+		
+		//mapStringGen.printMapStringToConsole();
+		mapString = mapStringGen.getMapString();
+		
 		
 		gameMap = new Map(MAPWIDTH,MAPHEIGHT,TILE_WIDTH,TILE_HEIGHT,mapString);
 		gui = new GUI(this, mm);
