@@ -31,7 +31,7 @@ public class Map implements GameObject {
 	
 	private GameWindow gw;
 	
-	private int scrollSpeed = 300;
+	private int scrollSpeed = 450;
 	
 	private ArrayList<Tile> mapTiles = new ArrayList<Tile>();
 
