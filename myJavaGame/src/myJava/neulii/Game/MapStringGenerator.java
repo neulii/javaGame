@@ -24,9 +24,11 @@ public class MapStringGenerator {
 		
 		mapString = new int[stringLength];
 		
-		
-		
-		
+		//Map mit Grass fuellen
+		for(int i=0; i<stringLength;i++) {
+			mapString[i] = 0;
+			
+		}
 		
 	}
 	
@@ -44,8 +46,14 @@ public class MapStringGenerator {
 		setIronOre(ironOre);
 	}
 	
-	
-	
-	
-
+	public void printMapStringToConsole() {
+		
+		for(int i = 0; i<stringLength; i++) {
+		
+			if(i>0 && (i % (width) == 0)) {
+				System.out.print("\n");
+			}
+			System.out.print(mapString[i]);
+		}
+	}
 }
