@@ -41,34 +41,12 @@ public class MapStringGenerator {
 	public void setCoal(int coal) {
 		
 		Random r = new Random();
-		
-		int fieldsCreated = 0;
-		
+	
 		
 		int coalFields = (int)(stringLength*coal/100);
 		
 		for(int i = 0;i<coalFields; i++) {
-		
-			while(fieldsCreated<=coalFields) {
 				
-				int index = r.nextInt(stringLength);
-				
-				if(mapString[index]==1) {
-					System.out.println("nexte");
-					break;
-					
-				}
-				else {
-					mapString[index] = 1;
-					fieldsCreated++;
-					System.out.println("create");
-				}
-				
-				
-				
-			}
-			
-			
 			
 		}
 		
