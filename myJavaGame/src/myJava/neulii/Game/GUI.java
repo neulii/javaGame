@@ -69,24 +69,29 @@ public class GUI implements GameObject{
 		
 			String fieldType = null;
 			String showResource = null;
+			String showCoordinate = null;
 			
 			if(tempField!=null) {
 				
 				fieldType = tempField.getFieldType().toString(); 
 				showResource = Double.toString(tempField.getResources());
+				showCoordinate = gw.getMap().getMapCoordinateFromTile(tempField).x + " / " + gw.getMap().getMapCoordinateFromTile(tempField).y;
 			}
 			else {
 				showResource = "0";
 				fieldType = "none";
+				showCoordinate = "none";
 			}
 					
-			String infoString1 = "FieldType: " + fieldType +  " ";
-			String infoString2 = "Resource:  " + showResource + " " ;
+			String infoString1 = "FieldType:  " + fieldType +  " ";
+			String infoString2 = "Resource:   " + showResource + " " ;
+			String infoString3 = "Coordinate: " + showCoordinate + " " ;
 			
 			g.setColor(Color.black);
 			g.setFont(new Font("default",Font.BOLD,12));
 			g.drawString(infoString1 ,gw.getWidth()-200,20);
 			g.drawString(infoString2 ,gw.getWidth()-200,40);
+			g.drawString(infoString3, gw.getWidth()-200, 60);
 		}
 		
 		//render menu

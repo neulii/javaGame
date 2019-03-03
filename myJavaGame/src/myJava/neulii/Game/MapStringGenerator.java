@@ -1,16 +1,11 @@
 package myJava.neulii.Game;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-
 import myJava.neulii.Lib.Utils;
 
 public class MapStringGenerator {
 	
 	private int width;
 	private int height;
-	
 	
 	//in from mapTiles percentage
 	private int ironOre = 0;
@@ -50,11 +45,6 @@ public class MapStringGenerator {
 		for(int i = 0; i<coalFields.length;i++) {
 			mapString[coalFields[i]] = fieldType.value;	
 		}
-	}
-	
-	public void generateIronOre(int ironOre) {
-		
-		
 	}
 	
 	public void setMapStructure(int coal, int ironOre) {

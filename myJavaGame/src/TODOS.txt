@@ -6,8 +6,6 @@ TODOS
 
 - market for buy and rebuing things
 
-- mapgenerator
-
 - upgrades für produktionsgebäude
 
 - fenster für produktions tiles

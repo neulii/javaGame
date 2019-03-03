@@ -8,14 +8,12 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
-import myJava.neulii.Lib.Utils;
-
 public class GameWindow extends Canvas implements GameObject{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private final int MAPWIDTH = 25;
-	private final int MAPHEIGHT = 16;
+	private final int MAPWIDTH = 20;
+	private final int MAPHEIGHT = 20;
 	
 	private final int TILE_WIDTH = 50;
 	private final int TILE_HEIGHT = 50;
@@ -40,23 +38,7 @@ public class GameWindow extends Canvas implements GameObject{
 	
 	private InputListener inputListener;
 	
-	private int[] mapString = {0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-							   0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0,0,0,0,0
-	};
+	private int[] mapString;
 	
 	private Map gameMap;
 	private GUI gui;
@@ -171,8 +153,6 @@ public class GameWindow extends Canvas implements GameObject{
 		MapStringGenerator mapStringGen = new MapStringGenerator(MAPWIDTH, MAPHEIGHT);
 		
 		mapStringGen.setMapStructure(5,5);
-		
-		//mapStringGen.printMapStringToConsole();
 		mapString = mapStringGen.getMapString();
 		
 		gameMap = new Map(MAPWIDTH,MAPHEIGHT,TILE_WIDTH,TILE_HEIGHT,mapString);

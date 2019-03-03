@@ -257,4 +257,15 @@ public class Map implements GameObject {
 		moveDown = down;
 		this.gw = gw;
 	}
+	
+	//TODO
+	//returns the x/y cooridnate from maptile
+	public Point getMapCoordinateFromTile(Tile tile) {
+		
+		Point coordinate = new Point(0,0);
+		
+		
+			
+		return coordinate;
+	}
 }
