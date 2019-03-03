@@ -1,6 +1,8 @@
 package myJava.neulii.Game;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class MapStringGenerator {
 	
@@ -57,6 +59,8 @@ public class MapStringGenerator {
 		
 	
 	}
+	
+	
 	
 	public void setIronOre(int ironOre) {
 		
