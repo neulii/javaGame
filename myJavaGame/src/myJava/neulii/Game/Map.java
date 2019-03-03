@@ -264,7 +264,10 @@ public class Map implements GameObject {
 		
 		Point coordinate = new Point(0,0);
 		
+		Dimension d = convertLineToDimension(getIndex(tile));
 		
+		coordinate.x = (int) d.getWidth();
+		coordinate.y = (int) d.getHeight();
 			
 		return coordinate;
 	}
