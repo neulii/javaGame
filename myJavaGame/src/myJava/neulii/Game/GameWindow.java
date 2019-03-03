@@ -8,6 +8,8 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import myJava.neulii.Lib.Utils;
+
 public class GameWindow extends Canvas implements GameObject{
 	
 	private static final long serialVersionUID = 1L;
@@ -168,11 +170,10 @@ public class GameWindow extends Canvas implements GameObject{
 		
 		MapStringGenerator mapStringGen = new MapStringGenerator(MAPWIDTH, MAPHEIGHT);
 		
-		mapStringGen.setCoal(100);
+		mapStringGen.setMapStructure(5,5);
 		
 		//mapStringGen.printMapStringToConsole();
 		mapString = mapStringGen.getMapString();
-		
 		
 		gameMap = new Map(MAPWIDTH,MAPHEIGHT,TILE_WIDTH,TILE_HEIGHT,mapString);
 		gui = new GUI(this, mm);

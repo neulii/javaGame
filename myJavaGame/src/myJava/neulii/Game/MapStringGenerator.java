@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import myJava.neulii.Lib.Utils;
+
 public class MapStringGenerator {
 	
 	private int width;
@@ -31,45 +33,34 @@ public class MapStringGenerator {
 		//Map mit Grass fuellen
 		for(int i=0; i<stringLength;i++) {
 			mapString[i] = 0;
-			
 		}
-		
 	}
 	
 	public int[] getMapString() {
 		return mapString;
 	}
 	
-	public void setCoal(int coal) {
+	public void generateTilesOnMap(int coal, FieldType fieldType) {
 		
-		Random r = new Random();
-	
+		int numberOfCoalFields = (int)(stringLength*coal/100);
 		
-		int coalFields = (int)(stringLength*coal/100);
-		
-		for(int i = 0;i<coalFields; i++) {
+		//System.out.println(numberOfCoalFields);
+		int [] coalFields = Utils.getArrayWithRandomInts(mapString.length, numberOfCoalFields);
 				
-			
+		for(int i = 0; i<coalFields.length;i++) {
+			mapString[coalFields[i]] = fieldType.value;	
 		}
-		
-		printMapStringToConsole();
-		
-				
-				
-		
-	
 	}
 	
-	
-	
-	public void setIronOre(int ironOre) {
+	public void generateIronOre(int ironOre) {
 		
 		
 	}
 	
 	public void setMapStructure(int coal, int ironOre) {
-		setCoal(coal);
-		setIronOre(ironOre);
+		generateTilesOnMap(coal, FieldType.COAL);
+		generateTilesOnMap(ironOre, FieldType.IRON_ORE);
+		
 	}
 	
 	public void printMapStringToConsole() {
