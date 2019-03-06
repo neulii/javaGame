@@ -7,7 +7,8 @@ public enum FieldType {
 	IRON_ORE(2),
 	
 	COAL_MINE(3),
-	IRON_ORE_MINE(4);
+	IRON_ORE_MINE(4),
+	FURNACE(5);
 	
 	int value;
 	

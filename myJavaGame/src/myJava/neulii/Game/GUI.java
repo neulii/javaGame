@@ -23,16 +23,22 @@ public class GUI implements GameObject{
 	private ArrayList<ProductionTile> menuTiles = new ArrayList<ProductionTile>();
 	private ArrayList<Tile> symbolTiles = new ArrayList<Tile>();
 	
+	int beginningInfoSymbols = 300;
+	
 	public GUI(GameWindow gw, MaterialManager mm) {
 		this.gw = gw;
 		this.mm = mm;
 		//testcomment
 		ProductionTile coalMine = new ProductionTile(new Tile(10,70,menuTileWidth, menuTileHeight, FieldType.COAL,ImageLoader.loadImage("/coalMineField.png")), FieldType.COAL_MINE, mm);
 		ProductionTile ironOreMine = new ProductionTile(new Tile(10,70+50+10,menuTileWidth, menuTileHeight, FieldType.IRON_ORE,ImageLoader.loadImage("/ironOreMineField.png")), FieldType.IRON_ORE_MINE, mm);
+		ProductionTile furnace = new ProductionTile(new Tile(10,70+50+50+10+10,menuTileWidth, menuTileHeight, FieldType.GRASS,ImageLoader.loadImage("/furnaceField.png")), FieldType.FURNACE,mm);
+		
 		
 		menuTiles.add(coalMine);
 		menuTiles.add(ironOreMine);
-
+		menuTiles.add(furnace);
+		
+		
 		for (ProductionTile tiles : menuTiles) {
 			tiles.setBorderColor(Color.black);
 			tiles.setHooveredBorderColor(Color.red);
@@ -44,9 +50,11 @@ public class GUI implements GameObject{
 		Tile ironOreSymbol;
 		Tile moneySymbol;
 		
-		coalSymbol = new Tile(20,240,30,30,ImageLoader.loadImage("/coalSymbol.png"));
-		ironOreSymbol = new Tile(20,280,30,30,ImageLoader.loadImage("/ironOreSymbol.png"));
-		moneySymbol = new Tile(20,200,30,30,ImageLoader.loadImage("/moneySymbol.png"));
+		
+		
+		coalSymbol = new Tile(20,beginningInfoSymbols,30,30,ImageLoader.loadImage("/coalSymbol.png"));
+		ironOreSymbol = new Tile(20,beginningInfoSymbols+40,30,30,ImageLoader.loadImage("/ironOreSymbol.png"));
+		moneySymbol = new Tile(20,beginningInfoSymbols+80,30,30,ImageLoader.loadImage("/moneySymbol.png"));
 		
 		symbolTiles.add(coalSymbol);
 		symbolTiles.add(ironOreSymbol);
@@ -108,13 +116,13 @@ public class GUI implements GameObject{
 		//Coal Info
 		g.setColor(Color.black);
 		g.setFont(new Font("default",Font.BOLD,20));
-		g.drawString(Integer.toString((int)(mm.getcoal())),60,260);
+		g.drawString(Integer.toString((int)(mm.getcoal())),60,beginningInfoSymbols+20);
 	
 		//iron_ore info
-		g.drawString(Integer.toString((int)(mm.getIronOre())),60,300);
+		g.drawString(Integer.toString((int)(mm.getIronOre())),60,beginningInfoSymbols+60);
 		
 		//money_info
-		g.drawString(Integer.toString((int)(mm.getMoney())),60,220);
+		g.drawString(Integer.toString((int)(mm.getMoney())),60,beginningInfoSymbols+100);
 		
 		
 		//show warning when money is enough
