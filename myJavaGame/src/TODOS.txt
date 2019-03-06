@@ -25,3 +25,5 @@ TODOS
 - change map with cheat
 
 - speichern / laden
+
+- menu

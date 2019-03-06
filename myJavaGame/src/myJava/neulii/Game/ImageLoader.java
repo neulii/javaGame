@@ -21,10 +21,9 @@ public class ImageLoader {
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("Fehler beim Bilder laden!! ");
-			System.out.println("Programm wird beednet!!");
-			System.exit(1);
+			//System.out.println("Programm wird beednet!!");
+			//System.exit(1);
 		}
-		
 		
 		return image;
 		
