@@ -23,3 +23,5 @@ TODOS
 - zooming the map
 
 - change map with cheat
+
+- speichern / laden
