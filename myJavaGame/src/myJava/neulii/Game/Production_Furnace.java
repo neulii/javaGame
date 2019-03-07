@@ -4,8 +4,6 @@ public class Production_Furnace extends ProductionTile {
 
 	public Production_Furnace(Tile tile, FieldType fieldType, MaterialManager mm) {
 		super(tile, fieldType, mm);
-	
-		System.out.println("furnace is generated");
 	}
 	
 	@Override
