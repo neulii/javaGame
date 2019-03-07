@@ -33,11 +33,9 @@ public class GUI implements GameObject{
 		ProductionTile ironOreMine = new ProductionTile(new Tile(10,70+50+10,menuTileWidth, menuTileHeight, FieldType.IRON_ORE,ImageLoader.loadImage("/ironOreMineField.png")), FieldType.IRON_ORE_MINE, mm);
 		Production_Furnace furnace = new Production_Furnace(new Tile(10,70+50+50+10+10,menuTileWidth, menuTileHeight, FieldType.GRASS,ImageLoader.loadImage("/furnaceField.png")), FieldType.FURNACE,mm);
 		
-		
 		menuTiles.add(coalMine);
 		menuTiles.add(ironOreMine);
 		menuTiles.add(furnace);
-		
 		
 		for (ProductionTile tiles : menuTiles) {
 			tiles.setBorderColor(Color.black);
@@ -49,16 +47,17 @@ public class GUI implements GameObject{
 		Tile coalSymbol;
 		Tile ironOreSymbol;
 		Tile moneySymbol;
+		Tile rawIronSymbol;
 		
-		
-		
-		coalSymbol = new Tile(20,beginningInfoSymbols,30,30,ImageLoader.loadImage("/coalSymbol.png"));
+		coalSymbol = new Tile(20,beginningInfoSymbols+80,30,30,ImageLoader.loadImage("/coalSymbol.png"));
 		ironOreSymbol = new Tile(20,beginningInfoSymbols+40,30,30,ImageLoader.loadImage("/ironOreSymbol.png"));
-		moneySymbol = new Tile(20,beginningInfoSymbols+80,30,30,ImageLoader.loadImage("/moneySymbol.png"));
+		moneySymbol = new Tile(20,beginningInfoSymbols,30,30,ImageLoader.loadImage("/moneySymbol.png"));
+		rawIronSymbol = new Tile(20,beginningInfoSymbols+120,30,30,ImageLoader.loadImage("/rawIron.png"));
 		
 		symbolTiles.add(coalSymbol);
 		symbolTiles.add(ironOreSymbol);
 		symbolTiles.add(moneySymbol);
+		symbolTiles.add(rawIronSymbol);
 	}
 	
 	@Override
@@ -116,14 +115,16 @@ public class GUI implements GameObject{
 		//Coal Info
 		g.setColor(Color.black);
 		g.setFont(new Font("default",Font.BOLD,20));
-		g.drawString(Integer.toString((int)(mm.getcoal())),60,beginningInfoSymbols+20);
+		g.drawString(Integer.toString((int)(mm.getcoal())),60,beginningInfoSymbols+100);
 	
 		//iron_ore info
 		g.drawString(Integer.toString((int)(mm.getIronOre())),60,beginningInfoSymbols+60);
 		
 		//money_info
-		g.drawString(Integer.toString((int)(mm.getMoney())),60,beginningInfoSymbols+100);
+		g.drawString(Integer.toString((int)(mm.getMoney())),60,beginningInfoSymbols+20);
 		
+		//raw_iron
+		g.drawString(Integer.toString((int)(mm.getRawIron())),60,beginningInfoSymbols+140);
 		
 		//show warning when money is enough
 		if(moneyWarning) {
