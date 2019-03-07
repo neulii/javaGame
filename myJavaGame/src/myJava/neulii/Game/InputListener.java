@@ -55,8 +55,17 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 						
 						changeingTile = gui.getElementMarked().getImage();
 						
-						ProductionTile newTile = new ProductionTile(tile,gui.getElementMarked().getFieldType(),gw.getMaterialManager());
+						Tile newTile;
+						
+						//new Type of Tile is furnace
+						if( gui.getElementMarked() instanceof Production_Furnace) {
+							newTile = new Production_Furnace(tile,gui.getElementMarked().getFieldType(),gw.getMaterialManager());
+						}
+						else
+							newTile = new ProductionTile(tile,gui.getElementMarked().getFieldType(),gw.getMaterialManager());
+						
 						//newTile.setHooveredBorderThickness(2);
+						
 						newTile.setHooveredBorderColor(Color.blue);
 						newTile.setHoovered(true);
 						
@@ -65,7 +74,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 //						tile.setImage(gui.getElementMarked().getImage());				
 //						tile.setFieldType(gui.getElementMarked().getFieldType());
 //						
-						gw.getMaterialManager().subMoney(newTile.getCostOfTile());
+						gw.getMaterialManager().subMoney(((ProductionTile)newTile).getCostOfTile());
 						
 						gui.clearMarkedTile();
 						changeingTile = null;

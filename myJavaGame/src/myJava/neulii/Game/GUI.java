@@ -31,7 +31,7 @@ public class GUI implements GameObject{
 		//testcomment
 		ProductionTile coalMine = new ProductionTile(new Tile(10,70,menuTileWidth, menuTileHeight, FieldType.COAL,ImageLoader.loadImage("/coalMineField.png")), FieldType.COAL_MINE, mm);
 		ProductionTile ironOreMine = new ProductionTile(new Tile(10,70+50+10,menuTileWidth, menuTileHeight, FieldType.IRON_ORE,ImageLoader.loadImage("/ironOreMineField.png")), FieldType.IRON_ORE_MINE, mm);
-		ProductionTile furnace = new ProductionTile(new Tile(10,70+50+50+10+10,menuTileWidth, menuTileHeight, FieldType.GRASS,ImageLoader.loadImage("/furnaceField.png")), FieldType.FURNACE,mm);
+		Production_Furnace furnace = new Production_Furnace(new Tile(10,70+50+50+10+10,menuTileWidth, menuTileHeight, FieldType.GRASS,ImageLoader.loadImage("/furnaceField.png")), FieldType.FURNACE,mm);
 		
 		
 		menuTiles.add(coalMine);
