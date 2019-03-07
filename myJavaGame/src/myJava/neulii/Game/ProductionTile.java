@@ -8,7 +8,7 @@ public class ProductionTile extends Tile {
 	
 	private int costOfTile = 100;
 	
-	private MaterialManager mm;
+	protected MaterialManager mm;
 	
 	public ProductionTile(Tile tile, FieldType fieldType, MaterialManager mm) {
 		super(tile);

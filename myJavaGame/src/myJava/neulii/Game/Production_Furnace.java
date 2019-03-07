@@ -10,6 +10,7 @@ public class Production_Furnace extends ProductionTile {
 	public void update(long dT) {
 		
 		System.out.println("furnace processing");
+		
 	}
 
 }
