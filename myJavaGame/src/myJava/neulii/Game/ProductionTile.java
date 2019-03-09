@@ -3,8 +3,8 @@ package myJava.neulii.Game;
 public class ProductionTile extends Tile {
 
 	private FieldType buildOn;
-	private double minedAmount = 0;
-	private double miningPerSecond = 1;	
+	protected double minedAmount = 0;
+	protected double miningPerSecond = 1;	
 	
 	private int costOfTile = 100;
 	
@@ -66,5 +66,9 @@ public class ProductionTile extends Tile {
 	
 	public int getCostOfTile() {
 		return costOfTile;
+	}
+	
+	public void setMiningPerSecond(double mining) {
+		this.miningPerSecond = mining;
 	}
 }
