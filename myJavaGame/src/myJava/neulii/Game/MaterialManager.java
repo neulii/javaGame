@@ -27,6 +27,14 @@ public class MaterialManager {
 		this.raw_Iron = this.raw_Iron- raw_Iron;
 	}
 	
+	public void subCoal(int coal) {
+		this.coal = this.coal-coal;
+	}
+	
+	public void subIronOre(int ironOre) {
+		this.iron_ore = this.iron_ore - ironOre;
+	}
+	
 	public int getIronOre() {
 		return this.iron_ore;
 	}
