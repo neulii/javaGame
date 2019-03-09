@@ -14,8 +14,6 @@ TODOS
 
 - make gui for production tiles -> to load ores and things
 
-- hochofen implementieren
-
 - game points and achievements
 
 - neue Produktionsgebäude

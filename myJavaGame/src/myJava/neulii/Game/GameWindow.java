@@ -12,8 +12,8 @@ public class GameWindow extends Canvas implements GameObject{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private final int MAPWIDTH = 20;
-	private final int MAPHEIGHT = 20;
+	private final int MAPWIDTH = 25;
+	private final int MAPHEIGHT = 25;
 	
 	private final int TILE_WIDTH = 50;
 	private final int TILE_HEIGHT = 50;
@@ -44,8 +44,8 @@ public class GameWindow extends Canvas implements GameObject{
 	private GUI gui;
 
 	public GameWindow(int width, int height) {
-		windowWidth = 15 * TILE_WIDTH;
-		windowHeight =10 * TILE_HEIGHT;
+		windowWidth = 20 * TILE_WIDTH;
+		windowHeight =15 * TILE_HEIGHT;
 
 		windowSize = new Dimension(windowWidth, windowHeight);
 		
@@ -152,7 +152,7 @@ public class GameWindow extends Canvas implements GameObject{
 		
 		MapStringGenerator mapStringGen = new MapStringGenerator(MAPWIDTH, MAPHEIGHT);
 		
-		mapStringGen.setMapStructure(5,5);
+		mapStringGen.setMapStructure(1,1);
 		mapString = mapStringGen.getMapString();
 		
 		gameMap = new Map(MAPWIDTH,MAPHEIGHT,TILE_WIDTH,TILE_HEIGHT,mapString);
