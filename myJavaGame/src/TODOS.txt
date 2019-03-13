@@ -25,3 +25,10 @@ TODOS
 - speichern / laden
 
 - menu
+
+
+
+==============BUGS==============
+
+
+wenn map bewegt wird und mit rechter maustaste gebäudeauswahl gecancelld wird wird gebäude gebaut
