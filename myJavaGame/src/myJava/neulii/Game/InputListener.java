@@ -212,6 +212,14 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 		if(e.getKeyCode()==KeyEvent.VK_F12)
 			gui.switchDebugView();
 
+		//show market / bank
+		if(e.getKeyCode()==KeyEvent.VK_B) {
+			
+			MarketWindow marketWindow = new MarketWindow(gw.getMaterialManager());
+			marketWindow.show();
+			
+		}
+		
 		String cheatInput = "";
 		if(e.getKeyCode()==KeyEvent.VK_ENTER) {
 			cheatInput = JOptionPane.showInputDialog(gw, "Cheat-Code eingeben:", "Cheat Konsole", JOptionPane.INFORMATION_MESSAGE);
