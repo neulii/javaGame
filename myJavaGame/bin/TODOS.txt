@@ -1,0 +1,34 @@
+TODOS
+
+- find new pictures for symbols
+
+- produktionsstätte animieren
+
+- market for buy and rebuing things
+
+- upgrades für produktionsgebäude
+
+- fenster für produktions tiles
+
+- animation der production tiles wenn sie gestoppt werden
+
+- make gui for production tiles -> to load ores and things
+
+- game points and achievements
+
+- neue Produktionsgebäude
+
+- zooming the map
+
+- change map with cheat
+
+- speichern / laden
+
+- menu
+
+
+
+==============BUGS==============
+
+
+wenn map bewegt wird und mit rechter maustaste gebäudeauswahl gecancelld wird wird gebäude gebaut
