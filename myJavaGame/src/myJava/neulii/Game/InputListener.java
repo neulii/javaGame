@@ -192,7 +192,8 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 		}
 		//mouse is leaving field
 		else {
-			activeTile.setHoovered(false);
+			if(activeTile!=null)
+				activeTile.setHoovered(false);
 			newTile.setHoovered(false);
 		}
 	}
