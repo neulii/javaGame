@@ -4,6 +4,8 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
@@ -47,7 +49,7 @@ public class GameWindow extends Canvas implements GameObject{
 		windowWidth = 20 * TILE_WIDTH;
 		windowHeight =15 * TILE_HEIGHT;
 
-		windowSize = new Dimension(windowWidth, windowHeight);
+		windowSize = new Dimension(500, 500);
 		
 		initializeObjects();
 		initializeWindow();
@@ -55,6 +57,34 @@ public class GameWindow extends Canvas implements GameObject{
 		gameWindow.setVisible(true);
 		gameWindow.setResizable(true);
 		gameIsRunning = true;
+		
+		gameWindow.addComponentListener(new ComponentListener() {
+			
+			@Override
+			public void componentShown(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void componentResized(ComponentEvent e) {
+				getGameWindow().setSize(gameWindow.getSize());
+				System.out.println(getGameWindow().getHeight() + "    " + getGameWindow().getWidth());
+				
+			}
+			
+			@Override
+			public void componentMoved(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void componentHidden(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	
 		//Game Loop
 		final int FPS = 60;
@@ -127,7 +157,7 @@ public class GameWindow extends Canvas implements GameObject{
 	//initialize Window
 	public void initializeWindow() {
 		gameWindow = new JFrame("Game");
-		//gameWindow.setSize(windowWidth, windowHeight);
+		gameWindow.setSize(windowWidth, windowHeight);
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameWindow.setResizable(false);
 		
@@ -189,8 +219,8 @@ public class GameWindow extends Canvas implements GameObject{
 		return mm;
 	}
 	
-	public int getHeight() {
-		return this.windowHeight;
+	public GameWindow getGameWindow() {
+		return this;
 	}
 	
 }
