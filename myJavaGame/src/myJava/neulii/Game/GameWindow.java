@@ -12,8 +12,8 @@ public class GameWindow extends Canvas implements GameObject{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private final int MAPWIDTH = 25;
-	private final int MAPHEIGHT = 25;
+	private final int MAPWIDTH = 30;
+	private final int MAPHEIGHT = 30;
 	
 	private final int TILE_WIDTH = 50;
 	private final int TILE_HEIGHT = 50;
@@ -53,7 +53,7 @@ public class GameWindow extends Canvas implements GameObject{
 		initializeWindow();
 		
 		gameWindow.setVisible(true);
-		
+		gameWindow.setResizable(true);
 		gameIsRunning = true;
 	
 		//Game Loop
@@ -156,6 +156,7 @@ public class GameWindow extends Canvas implements GameObject{
 		mapString = mapStringGen.getMapString();
 		
 		gameMap = new Map(MAPWIDTH,MAPHEIGHT,TILE_WIDTH,TILE_HEIGHT,mapString);
+		gameMap.setGameWindow(this);
 		gui = new GUI(this, mm);
 		mousePosition = new Point(0,0);
 	}
