@@ -62,27 +62,19 @@ public class GameWindow extends Canvas implements GameObject{
 			
 			@Override
 			public void componentShown(ComponentEvent e) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
 			public void componentResized(ComponentEvent e) {
-				getGameWindow().setSize(gameWindow.getSize());
-				System.out.println(getGameWindow().getHeight() + "    " + getGameWindow().getWidth());
-				
+				getGameWindow().setSize(gameWindow.getSize());				
 			}
 			
 			@Override
-			public void componentMoved(ComponentEvent e) {
-				// TODO Auto-generated method stub
-				
+			public void componentMoved(ComponentEvent e) {				
 			}
 			
 			@Override
-			public void componentHidden(ComponentEvent e) {
-				// TODO Auto-generated method stub
-				
+			public void componentHidden(ComponentEvent e) {				
 			}
 		});
 	
