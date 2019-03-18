@@ -2,13 +2,13 @@ TODOS
 
 - find new pictures for symbols
 
-- produktionsstätte animieren
+- produktionsstï¿½tte animieren
 
 - market for buy and rebuing things
 
-- upgrades für produktionsgebäude
+- upgrades fï¿½r produktionsgebï¿½ude
 
-- fenster für produktions tiles
+- fenster fï¿½r produktions tiles
 
 - animation der production tiles wenn sie gestoppt werden
 
@@ -16,7 +16,7 @@ TODOS
 
 - game points and achievements
 
-- neue Produktionsgebäude
+- neue Produktionsgebï¿½ude
 
 - zooming the map
 
@@ -26,9 +26,11 @@ TODOS
 
 - menu
 
+- performance mit volatile image verbessern
+
 
 
 ==============BUGS==============
 
 
-wenn map bewegt wird und mit rechter maustaste gebäudeauswahl gecancelld wird wird gebäude gebaut
+wenn map bewegt wird und mit rechter maustaste gebï¿½udeauswahl gecancelld wird wird gebï¿½ude gebaut
