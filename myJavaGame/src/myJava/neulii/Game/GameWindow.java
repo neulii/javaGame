@@ -49,7 +49,7 @@ public class GameWindow extends Canvas implements GameObject{
 		windowWidth = 20 * TILE_WIDTH;
 		windowHeight =15 * TILE_HEIGHT;
 
-		windowSize = new Dimension(500, 500);
+		windowSize = new Dimension(width, height);
 		
 		initializeObjects();
 		initializeWindow();
