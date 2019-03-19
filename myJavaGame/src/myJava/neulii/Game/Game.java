@@ -10,9 +10,9 @@ import org.newdawn.slick.SlickException;
 
 public class Game extends BasicGame
 {
-	public Game(String gamename)
+	public Game()
 	{
-		super(gamename);
+		super("SteelManager");
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class Game extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
-		g.drawString("Howdy!", 10, 10);
+		g.drawString("Howdy!", 10, 30);
 	}
 
 	public static void main(String[] args)
@@ -32,8 +32,8 @@ public class Game extends BasicGame
 		try
 		{
 			AppGameContainer appgc;
-			appgc = new AppGameContainer(new Game("Simple Slick Game"));
-			appgc.setDisplayMode(640, 480, false);
+			appgc = new AppGameContainer(new Game());
+			appgc.setDisplayMode(800, 600, false);
 			appgc.start();
 		}
 		catch (SlickException ex)
