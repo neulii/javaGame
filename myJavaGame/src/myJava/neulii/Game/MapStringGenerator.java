@@ -35,7 +35,7 @@ public class MapStringGenerator {
 		return mapString;
 	}
 	
-	public void generateTilesOnMap(int coal, FieldType fieldType) {
+	private void generateTilesOnMap(int coal, FieldType fieldType) {
 		
 		int numberOfCoalFields = (int)(stringLength*coal/100);
 		

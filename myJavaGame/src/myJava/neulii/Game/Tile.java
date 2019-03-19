@@ -98,8 +98,8 @@ public class Tile implements GameObject {
 	@Override
 	public void render(Graphics g) {
 		//g.drawImage(image, this.getX(), this.getY(), this.getWidth(), this.getHeight(), null);
-		g.drawImage(image, this.getX(), this.getY());
-		
+		//g.drawImage(image, this.getX(), this.getY());
+		g.drawImage(image.getScaledCopy(this.getWidth(), this.getHeight()),this.getX(), this.getY());
 		
 		Color tempColor = g.getColor();
 		
