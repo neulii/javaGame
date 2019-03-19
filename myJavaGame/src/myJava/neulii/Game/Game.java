@@ -6,6 +6,7 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 public class Game extends BasicGame
@@ -24,7 +25,14 @@ public class Game extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
-		g.drawString("Howdy!", 10, 30);
+		
+		
+		Tile tile = new Tile(20,20,50,50,new Image("images/coalField.png"));
+		
+		
+		tile.render(g);
+		
+		
 	}
 
 	public static void main(String[] args)

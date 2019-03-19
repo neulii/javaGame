@@ -1,8 +1,9 @@
 package myJava.neulii.Game;
-import java.awt.Color;
-import java.awt.Graphics;
+
 import java.awt.Point;
-import java.awt.image.BufferedImage;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 
 public class Tile implements GameObject {
 	
@@ -20,10 +21,10 @@ public class Tile implements GameObject {
 	private int hooveredBorderThickness = 1;
 	private int borderThickness = 1;
 	
-	private BufferedImage image;
+	private Image image;
 	private FieldType fieldType;
 	
-	public Tile(int x, int y, int width, int height, FieldType fieldType, BufferedImage image) {
+	public Tile(int x, int y, int width, int height, FieldType fieldType, Image image) {
 		this.height = height;
 		this.width = width;
 		this.x = x;
@@ -42,7 +43,7 @@ public class Tile implements GameObject {
 		this.fieldType = tile.getFieldType();
 	}
 	
-	public Tile(int x, int y, int width, int height, BufferedImage image) {
+	public Tile(int x, int y, int width, int height, Image image) {
 		this.height = height;
 		this.width = width;
 		this.x = x;
@@ -53,7 +54,7 @@ public class Tile implements GameObject {
 	
 	
 	
-	public BufferedImage getImage() {
+	public Image getImage() {
 		return image;
 	}
 	
@@ -96,7 +97,10 @@ public class Tile implements GameObject {
 	
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(image, this.getX(), this.getY(), this.getWidth(), this.getHeight(), null);
+		//g.drawImage(image, this.getX(), this.getY(), this.getWidth(), this.getHeight(), null);
+		g.drawImage(image, this.getX(), this.getY());
+		
+		
 		Color tempColor = g.getColor();
 		
 		//when color is set then paint border
@@ -148,7 +152,7 @@ public class Tile implements GameObject {
 		this.borderThickness = borderThickness;
 	}
 	
-	public void setImage(BufferedImage image) {
+	public void setImage(Image image) {
 		this.image = image;
 	}
 	
@@ -176,4 +180,7 @@ public class Tile implements GameObject {
 		this.x = this.x+x;
 		this.y = this.y+y;
 	}
+
+	
+	
 }

@@ -1,6 +1,6 @@
 package myJava.neulii.Game;
 
-import java.awt.Graphics;
+import org.newdawn.slick.Graphics;
 
 public interface GameObject {
 
