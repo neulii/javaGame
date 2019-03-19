@@ -19,10 +19,10 @@ public class Map implements GameObject {
 	//private int[] mapString;
 	
 	private int width; // width in fields
-	//private int height; // width in fields
-
-	//private int fieldWidth;
-	//private int fieldHeight;
+//	private int height; // width in fields
+//
+//	private int fieldWidth;
+//	private int fieldHeight;
 
 	private boolean moveRight;
 	private boolean moveLeft;
@@ -137,7 +137,11 @@ public class Map implements GameObject {
 	@Override
 	public void render(Graphics g) {
 		for (Tile tile : mapTiles) {
-			tile.render(g);
+			
+			
+				if(isInRenderingArea(tile))
+					tile.render(g);
+			
 		}
 	}
 
@@ -207,6 +211,26 @@ public class Map implements GameObject {
 		}
 	}
 	
+	private boolean isInRenderingArea(Tile tile) {
+		
+		boolean visible = false;		
+		
+			if(   
+					(tile.getX()+tile.getWidth() >= 0)    											&&   
+					((tile.getX()+tile.getWidth()) <= (gw.getWidth()+tile.getWidth()))	&&
+					(tile.getY() + tile.getHeight() >= 0)											 	&&
+					
+					((tile.getY()+tile.getHeight()) <= (gw.getHeight()+tile.getHeight()))
+			)
+	
+			{
+				visible=true;			
+			}
+		
+		return visible;
+		
+	}
+	
 	public Tile getTileFromCoordinate(int x, int y) {
 		
 		Tile temp = null;
@@ -270,5 +294,9 @@ public class Map implements GameObject {
 		coordinate.y = (int) d.getHeight();
 			
 		return coordinate;
+	}
+	
+	public void setGameWindow(GameWindow gw) {
+		this.gw = gw;
 	}
 }

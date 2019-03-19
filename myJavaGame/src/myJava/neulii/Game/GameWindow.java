@@ -4,6 +4,8 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
@@ -12,8 +14,8 @@ public class GameWindow extends Canvas implements GameObject{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private final int MAPWIDTH = 25;
-	private final int MAPHEIGHT = 25;
+	private final int MAPWIDTH = 30;
+	private final int MAPHEIGHT = 30;
 	
 	private final int TILE_WIDTH = 50;
 	private final int TILE_HEIGHT = 50;
@@ -47,14 +49,34 @@ public class GameWindow extends Canvas implements GameObject{
 		windowWidth = 20 * TILE_WIDTH;
 		windowHeight =15 * TILE_HEIGHT;
 
-		windowSize = new Dimension(windowWidth, windowHeight);
+		windowSize = new Dimension(width, height);
 		
 		initializeObjects();
 		initializeWindow();
 		
 		gameWindow.setVisible(true);
-		
+		gameWindow.setResizable(true);
 		gameIsRunning = true;
+		
+		gameWindow.addComponentListener(new ComponentListener() {
+			
+			@Override
+			public void componentShown(ComponentEvent e) {
+			}
+			
+			@Override
+			public void componentResized(ComponentEvent e) {
+				getGameWindow().setSize(gameWindow.getSize());				
+			}
+			
+			@Override
+			public void componentMoved(ComponentEvent e) {				
+			}
+			
+			@Override
+			public void componentHidden(ComponentEvent e) {				
+			}
+		});
 	
 		//Game Loop
 		final int FPS = 60;
@@ -127,7 +149,7 @@ public class GameWindow extends Canvas implements GameObject{
 	//initialize Window
 	public void initializeWindow() {
 		gameWindow = new JFrame("Game");
-		//gameWindow.setSize(windowWidth, windowHeight);
+		gameWindow.setSize(windowWidth, windowHeight);
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameWindow.setResizable(false);
 		
@@ -156,6 +178,7 @@ public class GameWindow extends Canvas implements GameObject{
 		mapString = mapStringGen.getMapString();
 		
 		gameMap = new Map(MAPWIDTH,MAPHEIGHT,TILE_WIDTH,TILE_HEIGHT,mapString);
+		gameMap.setGameWindow(this);
 		gui = new GUI(this, mm);
 		mousePosition = new Point(0,0);
 	}
@@ -188,8 +211,8 @@ public class GameWindow extends Canvas implements GameObject{
 		return mm;
 	}
 	
-	public int getHeight() {
-		return this.windowHeight;
+	public GameWindow getGameWindow() {
+		return this;
 	}
 	
 }
