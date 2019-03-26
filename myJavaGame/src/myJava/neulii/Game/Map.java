@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +35,13 @@ public class Map implements GameObject {
 	private int scrollSpeed = 450;
 	
 	private ArrayList<Tile> mapTiles = new ArrayList<Tile>();
-
+	private BufferedImage fieldImage;
+	
+	BufferedImage grassFieldImage;
+	BufferedImage coalFieldImage;
+	BufferedImage ironOreImage;
+	
+	
 	/**
 	 * 
 	 * @param width       in Tiles
@@ -49,13 +56,15 @@ public class Map implements GameObject {
 //		this.fieldWidth = fieldWidth;
 //		
 //		this.mapString = mapString;
-
+		
+		grassFieldImage = ImageLoader.loadImage("/grassField.png");
+		coalFieldImage = ImageLoader.loadImage("/coalField.png");
+		ironOreImage = ImageLoader.loadImage("/iron_oreField.png");
+		
 		for (int i = 0; i < width * height; i++) {
 		
 			int x = (int) convertLineToDimension(i).getWidth() * fieldWidth;
 			int y = (int) convertLineToDimension(i).getHeight() * fieldHeight;
-			
-			String imageString = null;
 			
 			int fieldTypeFromMap = mapString[i];
 		
@@ -64,24 +73,27 @@ public class Map implements GameObject {
 			
 			switch (type) {
 			case GRASS:
-				imageString = "/grassField.png";
+				fieldImage = grassFieldImage;
+				
 				break;
 
 			case COAL:
-				imageString = "/coalField.png";
+				fieldImage = coalFieldImage;
+				
 				break;
 				
 			case IRON_ORE:
-				imageString = "/iron_oreField.png";
+				fieldImage = ironOreImage;
+				
 				break;
 				
 			default:
 				break;
 			}
 			
-			if(imageString!=null) {
+			if(fieldImage!=null) {
 				
-				Tile tempTile = new Tile(x,y,fieldWidth,fieldHeight,type,ImageLoader.loadImage(imageString));
+				Tile tempTile = new Tile(x,y,fieldWidth,fieldHeight,type,fieldImage);
 				
 				tempTile.setHooveredBorderColor(Color.blue);
 				tempTile.setHooveredBorderThickness(2);
