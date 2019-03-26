@@ -1,20 +1,26 @@
 package myJava.neulii.Game;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 public class MarketWindow {
 	
-	private JFrame window;
+	private JDialog window;
 	private MaterialManager mm;
+	private JFrame parentWindow;
 	
-	public MarketWindow(MaterialManager mm) {
+	public MarketWindow(MaterialManager mm, JFrame parentWindow) {
 		
 		this.mm = mm;
+		this.parentWindow = parentWindow;
 		
-		window = new JFrame("Market");
+		
+		window = new JDialog(parentWindow, "Market", true);
 		
 		
 		window.setSize(300,300);
+		window.setLocationRelativeTo(parentWindow);
+		window.setResizable(false);
 		
 		
 		
@@ -23,7 +29,8 @@ public class MarketWindow {
 	}
 
 	public void show() {
-		this.show();
+		window.setVisible(true);
+		
 		
 	}
 	

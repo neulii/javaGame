@@ -1,5 +1,7 @@
 package myJava.neulii.Game;
 
+import javax.swing.JFrame;
+
 import myJava.neulii.Lib.Utils;
 
 public class MapStringGenerator {

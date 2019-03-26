@@ -215,7 +215,7 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 		//show market / bank
 		if(e.getKeyCode()==KeyEvent.VK_B) {
 			
-			MarketWindow marketWindow = new MarketWindow(gw.getMaterialManager());
+			MarketWindow marketWindow = new MarketWindow(gw.getMaterialManager(),gw.getFrame());
 			marketWindow.show();
 			
 		}

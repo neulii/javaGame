@@ -215,4 +215,8 @@ public class GameWindow extends Canvas implements GameObject{
 		return this;
 	}
 	
+	public JFrame getFrame() {
+		return gameWindow;
+	}
+	
 }
