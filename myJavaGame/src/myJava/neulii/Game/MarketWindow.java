@@ -22,7 +22,7 @@ public class MarketWindow {
 		window.setLocationRelativeTo(parentWindow);
 		window.setResizable(false);
 		
-		
+		window.setLayout(null);
 		
 		
 		
