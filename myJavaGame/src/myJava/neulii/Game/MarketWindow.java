@@ -18,11 +18,11 @@ public class MarketWindow {
 		window = new JDialog(parentWindow, "Market", true);
 		
 		
-		window.setSize(300,300);
+		window.setSize(500,300);
 		window.setLocationRelativeTo(parentWindow);
 		window.setResizable(false);
 		
-		window.setLayout(null);
+		window.getContentPane().setLayout(null);
 		
 		
 		
