@@ -30,6 +30,10 @@ public class MarketWindow {
 	private JButton resetValues;
 	private JButton selling;
 	
+	private int sumOfCoal;
+	private int sumOfRawIron;
+	private int sumOfIronOre;
+	
 	public MarketWindow(MaterialManager mm, JFrame parentWindow) {
 		
 		this.mm = mm;
@@ -64,7 +68,10 @@ public class MarketWindow {
 					coalSpinner.setValue(0);
 				}
 				
-				coalMoneyValue.setText(Integer.toString(mm.getCoalWorth() * (int)coalSpinner.getValue()));
+				sumOfCoal = mm.getCoalWorth() * (int)coalSpinner.getValue();
+				coalMoneyValue.setText(Integer.toString(sumOfCoal));
+				
+				moneyTotal.setText(Integer.toString(sumOfIronOre + sumOfCoal + sumOfRawIron));
 				
 			}
 		});
@@ -86,8 +93,11 @@ public class MarketWindow {
 				if((int)ironOreSpinner.getValue()<=0) {
 					ironOreSpinner.setValue(0);
 				}
+				sumOfIronOre = mm.getironOreWorth() * (int)ironOreSpinner.getValue();
+				ironOreMoneyValue.setText(Integer.toString(sumOfIronOre));
 				
-				ironOreMoneyValue.setText(Integer.toString(mm.getironOreWorth() * (int)ironOreSpinner.getValue()));
+				moneyTotal.setText(Integer.toString(sumOfIronOre + sumOfCoal + sumOfRawIron));
+				
 			}
 		});
 
@@ -108,8 +118,10 @@ public class MarketWindow {
 				if((int) rawIronSpinner.getValue()<=0) {
 					rawIronSpinner.setValue(0);
 				}
+				sumOfRawIron = mm.getRawIronWorth() * (int)rawIronSpinner.getValue();
+				rawIronMoneyValue.setText(Integer.toString(sumOfRawIron));
 				
-				rawIronMoneyValue.setText(Integer.toString(mm.getRawIronWorth() * (int)rawIronSpinner.getValue()));
+				moneyTotal.setText(Integer.toString(sumOfIronOre + sumOfCoal + sumOfRawIron));
 			}
 		});
 		
@@ -151,6 +163,27 @@ public class MarketWindow {
 		selling = new JButton("Verkaufen");
 		selling.setBounds(241, 310, 123, 34);
 		window.getContentPane().add(selling);
+		
+		selling.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mm.subCoal((int)coalSpinner.getValue());
+				mm.addMoney(sumOfCoal);
+				coalSpinner.setValue(0);
+				
+				
+				mm.subIronOre((int)ironOreSpinner.getValue());
+				mm.addMoney(sumOfIronOre);
+				ironOreSpinner.setValue(0);
+				
+				mm.subRawIron((int)rawIronSpinner.getValue());
+				mm.addMoney(sumOfRawIron);
+				rawIronSpinner.setValue(0);
+				
+				
+			}
+		});
 		
 		coalMoneyValue = new JTextField();
 		coalMoneyValue.setHorizontalAlignment(SwingConstants.CENTER);
