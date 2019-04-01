@@ -2,7 +2,6 @@ package myJava.neulii.Game;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JScrollBar;
 import javax.swing.JSpinner;
 import javax.swing.JSpinner.DefaultEditor;
 import javax.swing.event.ChangeEvent;
@@ -10,12 +9,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import javax.swing.JToggleButton;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -53,11 +46,9 @@ public class MarketWindow {
 		coalSpinner = new JSpinner();
 		coalSpinner.setBounds(103, 111, 40, 34);
 		window.getContentPane().add(coalSpinner);
-		//coalSpinner.setModel(new SpinnerNumberModel(0, 0, mm.getcoal(), 1));
 		setSpinnerNotEditabl(coalSpinner);
 		
 		coalSpinner.addChangeListener(new ChangeListener() {
-			
 			@Override
 			public void stateChanged(ChangeEvent e) {
 				int newValue = (int)coalSpinner.getValue();
@@ -68,26 +59,41 @@ public class MarketWindow {
 				
 			}
 		});
-		
-		
-		
-		
-		
+				
 		ironOreSpinner = new JSpinner();
 		ironOreSpinner.setBounds(200, 111, 40, 34);
 		window.getContentPane().add(ironOreSpinner);
-		//ironOreSpinner.setModel(new SpinnerNumberModel(0, 0, mm.getIronOre(),1));
 		setSpinnerNotEditabl(ironOreSpinner);
-		
-		
-		
+		ironOreSpinner.addChangeListener(new ChangeListener() {
+			
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				int newValue = (int)ironOreSpinner.getValue();
+				
+				if((int)ironOreSpinner.getValue() > mm.getIronOre()) {
+					ironOreSpinner.setValue(newValue-1);	
+				}
+				
+			}
+		});
+
 		rawIronSpinner = new JSpinner();
 		rawIronSpinner.setBounds(296, 111, 40, 34);
 		window.getContentPane().add(rawIronSpinner);
-		rawIronSpinner.setModel(new SpinnerNumberModel(0, 0, mm.getRawIron(),1));
 		setSpinnerNotEditabl(rawIronSpinner);
 		
-		
+		rawIronSpinner.addChangeListener(new ChangeListener() {
+			
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				int newValue = (int)rawIronSpinner.getValue();
+				
+				if((int)rawIronSpinner.getValue()> mm.getRawIron()) {
+					rawIronSpinner.setValue(newValue-1);
+				}
+				
+			}
+		});
 		
 		JLabel lblKohle = new JLabel("Kohle");
 		lblKohle.setHorizontalAlignment(SwingConstants.CENTER);
@@ -150,28 +156,7 @@ public class MarketWindow {
 		lblVerkaufswert.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblVerkaufswert.setBounds(272, 205, 136, 34);
 		window.getContentPane().add(lblVerkaufswert);
-		
-		//updateValues();
-		
-		
-		
-	}
 
-	public void updateValues() {
-		
-		coalSpinner.setModel(new SpinnerNumberModel((Number) coalSpinner.getValue(), 0, mm.getcoal(), 1));
-		setSpinnerNotEditabl(coalSpinner);
-		
-		
-		System.out.println(mm.getcoal());
-		
-		ironOreSpinner.setModel(new SpinnerNumberModel(0, 0, mm.getIronOre(),1));
-		setSpinnerNotEditabl(ironOreSpinner);
-		
-		rawIronSpinner.setModel(new SpinnerNumberModel(0, 0, mm.getRawIron(),1));
-		setSpinnerNotEditabl(rawIronSpinner);
-		
-		
 	}
 	
 	public void setSpinnerNotEditabl(JSpinner spinner) {
@@ -181,7 +166,6 @@ public class MarketWindow {
 
 	public void show() {
 		window.setVisible(true);
-		
-		
+	
 	}
 }
