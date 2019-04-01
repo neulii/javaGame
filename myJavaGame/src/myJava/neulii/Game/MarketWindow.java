@@ -9,6 +9,9 @@ import javax.swing.event.ChangeListener;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -60,6 +63,9 @@ public class MarketWindow {
 				if((int)coalSpinner.getValue()<=0) {
 					coalSpinner.setValue(0);
 				}
+				
+				coalMoneyValue.setText(Integer.toString(mm.getCoalWorth() * (int)coalSpinner.getValue()));
+				
 			}
 		});
 				
@@ -80,6 +86,8 @@ public class MarketWindow {
 				if((int)ironOreSpinner.getValue()<=0) {
 					ironOreSpinner.setValue(0);
 				}
+				
+				ironOreMoneyValue.setText(Integer.toString(mm.getironOreWorth() * (int)ironOreSpinner.getValue()));
 			}
 		});
 
@@ -100,6 +108,8 @@ public class MarketWindow {
 				if((int) rawIronSpinner.getValue()<=0) {
 					rawIronSpinner.setValue(0);
 				}
+				
+				rawIronMoneyValue.setText(Integer.toString(mm.getRawIronWorth() * (int)rawIronSpinner.getValue()));
 			}
 		});
 		
@@ -126,6 +136,17 @@ public class MarketWindow {
 		resetValues = new JButton("Zur\u00FCcksetzen");
 		resetValues.setBounds(80, 310, 123, 34);
 		window.getContentPane().add(resetValues);
+		resetValues.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ironOreSpinner.setValue(0);
+				rawIronSpinner.setValue(0);
+				coalSpinner.setValue(0);
+				
+			}
+		});
+		
 		
 		selling = new JButton("Verkaufen");
 		selling.setBounds(241, 310, 123, 34);
