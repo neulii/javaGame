@@ -129,6 +129,7 @@ public class MarketWindow {
 		coalMoneyValue.setBounds(78, 172, 86, 20);
 		window.getContentPane().add(coalMoneyValue);
 		coalMoneyValue.setColumns(10);
+		coalMoneyValue.setEditable(false);
 		
 		ironOreMoneyValue = new JTextField();
 		ironOreMoneyValue.setHorizontalAlignment(SwingConstants.CENTER);
@@ -136,6 +137,7 @@ public class MarketWindow {
 		ironOreMoneyValue.setColumns(10);
 		ironOreMoneyValue.setBounds(179, 172, 86, 20);
 		window.getContentPane().add(ironOreMoneyValue);
+		ironOreMoneyValue.setEditable(false);
 		
 		rawIronMoneyValue = new JTextField();
 		rawIronMoneyValue.setHorizontalAlignment(SwingConstants.CENTER);
@@ -143,6 +145,7 @@ public class MarketWindow {
 		rawIronMoneyValue.setColumns(10);
 		rawIronMoneyValue.setBounds(275, 172, 86, 20);
 		window.getContentPane().add(rawIronMoneyValue);
+		rawIronMoneyValue.setEditable(false);
 		
 		moneyTotal = new JTextField();
 		moneyTotal.setHorizontalAlignment(SwingConstants.CENTER);
@@ -151,6 +154,7 @@ public class MarketWindow {
 		moneyTotal.setColumns(10);
 		moneyTotal.setBounds(275, 250, 86, 20);
 		window.getContentPane().add(moneyTotal);
+		moneyTotal.setEditable(false);
 		
 		JLabel lblVerkaufswert = new JLabel("Verkaufswert");
 		lblVerkaufswert.setFont(new Font("Tahoma", Font.PLAIN, 15));
