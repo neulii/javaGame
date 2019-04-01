@@ -34,6 +34,10 @@ public class CheatAction {
 				mm.addMaterials(0, value);
 				break;
 				
+			case "giveRawIron":
+				mm.addRawIron(value);
+				break;
+				
 			default:
 				System.out.println("Cheat nicht erkannt!");
 				break;
