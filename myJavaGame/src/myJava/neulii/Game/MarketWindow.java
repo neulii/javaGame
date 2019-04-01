@@ -44,7 +44,7 @@ public class MarketWindow {
 		window.getContentPane().setLayout(null);
 		
 		coalSpinner = new JSpinner();
-		coalSpinner.setBounds(103, 111, 40, 34);
+		coalSpinner.setBounds(96, 111, 55, 34);
 		window.getContentPane().add(coalSpinner);
 		setSpinnerNotEditabl(coalSpinner);
 		
@@ -57,33 +57,38 @@ public class MarketWindow {
 					coalSpinner.setValue(newValue-1);	
 				}
 				
+				if((int)coalSpinner.getValue()<=0) {
+					coalSpinner.setValue(0);
+				}
 			}
 		});
 				
 		ironOreSpinner = new JSpinner();
-		ironOreSpinner.setBounds(200, 111, 40, 34);
+		ironOreSpinner.setBounds(193, 111, 55, 34);
 		window.getContentPane().add(ironOreSpinner);
 		setSpinnerNotEditabl(ironOreSpinner);
+		
 		ironOreSpinner.addChangeListener(new ChangeListener() {
-			
 			@Override
 			public void stateChanged(ChangeEvent e) {
 				int newValue = (int)ironOreSpinner.getValue();
 				
-				if((int)ironOreSpinner.getValue() > mm.getIronOre()) {
+				if((int)ironOreSpinner.getValue() > mm.getIronOre()){
 					ironOreSpinner.setValue(newValue-1);	
 				}
 				
+				if((int)ironOreSpinner.getValue()<=0) {
+					ironOreSpinner.setValue(0);
+				}
 			}
 		});
 
 		rawIronSpinner = new JSpinner();
-		rawIronSpinner.setBounds(296, 111, 40, 34);
+		rawIronSpinner.setBounds(289, 111, 55, 34);
 		window.getContentPane().add(rawIronSpinner);
 		setSpinnerNotEditabl(rawIronSpinner);
 		
 		rawIronSpinner.addChangeListener(new ChangeListener() {
-			
 			@Override
 			public void stateChanged(ChangeEvent e) {
 				int newValue = (int)rawIronSpinner.getValue();
@@ -92,6 +97,9 @@ public class MarketWindow {
 					rawIronSpinner.setValue(newValue-1);
 				}
 				
+				if((int) rawIronSpinner.getValue()<=0) {
+					rawIronSpinner.setValue(0);
+				}
 			}
 		});
 		
@@ -126,7 +134,7 @@ public class MarketWindow {
 		coalMoneyValue = new JTextField();
 		coalMoneyValue.setHorizontalAlignment(SwingConstants.CENTER);
 		coalMoneyValue.setText("0");
-		coalMoneyValue.setBounds(78, 172, 86, 20);
+		coalMoneyValue.setBounds(80, 172, 86, 20);
 		window.getContentPane().add(coalMoneyValue);
 		coalMoneyValue.setColumns(10);
 		coalMoneyValue.setEditable(false);
@@ -135,7 +143,7 @@ public class MarketWindow {
 		ironOreMoneyValue.setHorizontalAlignment(SwingConstants.CENTER);
 		ironOreMoneyValue.setText("0");
 		ironOreMoneyValue.setColumns(10);
-		ironOreMoneyValue.setBounds(179, 172, 86, 20);
+		ironOreMoneyValue.setBounds(177, 172, 86, 20);
 		window.getContentPane().add(ironOreMoneyValue);
 		ironOreMoneyValue.setEditable(false);
 		
@@ -143,7 +151,7 @@ public class MarketWindow {
 		rawIronMoneyValue.setHorizontalAlignment(SwingConstants.CENTER);
 		rawIronMoneyValue.setText("0");
 		rawIronMoneyValue.setColumns(10);
-		rawIronMoneyValue.setBounds(275, 172, 86, 20);
+		rawIronMoneyValue.setBounds(273, 172, 86, 20);
 		window.getContentPane().add(rawIronMoneyValue);
 		rawIronMoneyValue.setEditable(false);
 		
