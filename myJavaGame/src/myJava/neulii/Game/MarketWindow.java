@@ -44,6 +44,7 @@ public class MarketWindow {
 		
 		
 		window.setSize(463,453);
+		
 		window.setLocationRelativeTo(parentWindow);
 		window.setResizable(false);
 		
