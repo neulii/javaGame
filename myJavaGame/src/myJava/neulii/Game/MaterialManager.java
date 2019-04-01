@@ -7,6 +7,10 @@ public class MaterialManager {
 	private int iron_ore;
 	private int raw_Iron;
 	
+	private int coalWorth = 1;
+	private int iron_oreWorth = 2;
+	private int raw_ironWorth = 5;
+	
 	public MaterialManager() {
 		this.coal = 0;
 		this.iron_ore = 0;
@@ -63,4 +67,20 @@ public class MaterialManager {
 			return;
 	}
 
+	
+	public int getRawIronWorth() {
+		return raw_ironWorth;
+	
+	}
+	
+	public int getCoalWorth() {
+		return coalWorth;
+	}
+	
+	public int getironOreWorth() {
+		return iron_oreWorth;
+	}
+	
+	
+	
 }
