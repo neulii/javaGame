@@ -28,6 +28,10 @@ TODOS
 
 - balancing der produktion
 
+- canceling build mit q-taste
+
+- market button
+
 
 
 ==============BUGS==============

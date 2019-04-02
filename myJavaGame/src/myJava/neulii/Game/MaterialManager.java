@@ -15,7 +15,7 @@ public class MaterialManager {
 		this.coal = 0;
 		this.iron_ore = 0;
 		this.raw_Iron = 0;
-		this.money = 1000;
+		this.money = 100;
 	}
 	
 	public void addMaterials(int coal, int iron_ore) {
