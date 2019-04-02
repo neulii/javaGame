@@ -44,6 +44,8 @@ TODOS
 
 - abreissen der gebäude
 
+- performance steigerung -> zeichne nur teile die sichtbar sind
+
 ==============BUGS==============
 
 

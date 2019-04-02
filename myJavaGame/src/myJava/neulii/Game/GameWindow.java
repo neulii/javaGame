@@ -14,8 +14,8 @@ public class GameWindow extends Canvas implements GameObject{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private final int MAPWIDTH = 30;
-	private final int MAPHEIGHT = 30;
+	private final int MAPWIDTH = 300;		//mapwidth in tiles
+	private final int MAPHEIGHT = 300;		//mapheight in tiles
 	
 	private final int TILE_WIDTH = 50;
 	private final int TILE_HEIGHT = 50;
