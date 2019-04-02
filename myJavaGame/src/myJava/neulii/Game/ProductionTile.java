@@ -1,5 +1,7 @@
 package myJava.neulii.Game;
 
+import java.awt.Color;
+
 public class ProductionTile extends Tile {
 
 	private FieldType buildOn;
@@ -32,7 +34,7 @@ public class ProductionTile extends Tile {
 	@Override
 	public void update(long dT) {	
 		
-		if(getResources()>=0) {
+		if(getResources()>0) {
 			double minedThisUpdate = dT * miningPerSecond /1_000_000_000;
 			minedAmount = minedAmount + minedThisUpdate;
 			
@@ -54,10 +56,17 @@ public class ProductionTile extends Tile {
 					break;
 				}
 				minedAmount = 0;
+	
 				subtractResource(1);
 			}
 			
-		}		
+		}	
+		
+		else {
+			
+			setBorderBlink(true,500, Color.red);
+		}
+
 	}
 	
 	public double getMinedAmount() {

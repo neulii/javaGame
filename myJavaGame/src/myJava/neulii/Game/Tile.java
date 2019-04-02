@@ -20,6 +20,15 @@ public class Tile implements GameObject {
 	private int hooveredBorderThickness = 1;
 	private int borderThickness = 1;
 	
+	private long lastTimeRender = 0;
+	private boolean borderBlink = false;
+	private long blinkTime;
+	private Color blinkColor;
+	private boolean blinkOn = false;
+	//private Color tempBlink;
+	
+	private long timeCounter = 0;
+	
 	private BufferedImage image;
 	private FieldType fieldType;
 	
@@ -97,12 +106,16 @@ public class Tile implements GameObject {
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(image, this.getX(), this.getY(), this.getWidth(), this.getHeight(), null);
+		
 		Color tempColor = g.getColor();
+		
+		
 		
 		//when color is set then paint border
 		if(borderColor!=null) {
 			g.setColor(borderColor);
 			
+			//System.out.println(borderColor);
 			for(int i = 0; i< borderThickness; i++) {
 				g.drawRect(x+i, y+i, width-1-2*i, height-1-2*i);
 			}
@@ -117,6 +130,35 @@ public class Tile implements GameObject {
 			for(int i = 0; i< hooveredBorderThickness; i++) {
 				
 				g.drawRect(x+i, y+i, width-1-2*i, height-1-2*i);
+			}
+		}
+		
+		//blinking rendering
+
+		if(borderBlink) {
+			long deltaT = System.currentTimeMillis()-lastTimeRender;
+			lastTimeRender = System.currentTimeMillis();
+			
+			timeCounter = timeCounter + deltaT;
+						
+			if(timeCounter>blinkTime) {
+				timeCounter=0;
+				
+				if(blinkOn) {
+					//tempBlink = borderColor;
+					
+					//System.out.println("blink  " + tempBlink);
+					
+					setBorderColor(blinkColor);
+					setBorderThickness(3);
+					
+					blinkOn = false;
+				}
+				else {
+					blinkOn = true;
+					//borderColor = tempBlink;
+					borderThickness =0;
+				}
 			}
 		}
 		
@@ -175,5 +217,13 @@ public class Tile implements GameObject {
 	public void moveTile(int x, int y) {
 		this.x = this.x+x;
 		this.y = this.y+y;
+	}
+	
+	public void setBorderBlink(boolean blinkOn, long time, Color color) {
+		borderBlink = blinkOn;
+		blinkTime = time;
+		borderColor = color;
+		
+		
 	}
 }

@@ -10,8 +10,6 @@ TODOS
 
 - fenster f�r produktions tiles
 
-- animation / signalisierung der production tiles wenn sie gestoppt werden
-
 - make gui for production tiles -> to load ores and things
 
 - game points and achievements
@@ -46,6 +44,18 @@ TODOS
 
 - performance steigerung -> zeichne nur teile die sichtbar sind
 
+
+
+
+==== erledigt =======
+
+- animation / signalisierung der production tiles wenn sie gestoppt werden
+
+
+
 ==============BUGS==============
+
+
+
 
 

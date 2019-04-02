@@ -90,8 +90,8 @@ public class Map implements GameObject {
 			default:
 				break;
 			}
-			
-			if(fieldImage!=null) {
+			//if(fieldImage!=null) {
+			if(true) {
 				
 				Tile tempTile = new Tile(x,y,fieldWidth,fieldHeight,type,fieldImage);
 				
