@@ -26,11 +26,10 @@ TODOS
 
 - menu
 
-- performance mit volatile image verbessern
+- balancing der produktion
 
 
 
 ==============BUGS==============
 
 
-wenn map bewegt wird und mit rechter maustaste geb�udeauswahl gecancelld wird wird geb�ude gebaut
