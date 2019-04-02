@@ -10,7 +10,7 @@ TODOS
 
 - fenster f�r produktions tiles
 
-- animation der production tiles wenn sie gestoppt werden
+- animation / signalisierung der production tiles wenn sie gestoppt werden
 
 - make gui for production tiles -> to load ores and things
 
@@ -30,9 +30,19 @@ TODOS
 
 - canceling build mit q-taste
 
-- market button
+- market  zum gui hinzufüügen button
 
+- gebäude lager begrenzen 
 
+- lager gebäude / lager begrenzen
+
+- forschung
+
+- gebäude erweitern -> tiefer bohren für rohstoffe -> forschung
+
+- anzeige in den produktionsgebäuden wieviele produkte schon hergestellt wurden -> evt nur debug
+
+- abreissen der gebäude
 
 ==============BUGS==============
 
