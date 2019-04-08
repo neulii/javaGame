@@ -12,7 +12,7 @@ public enum FieldType {
 	
 	int value;
 	
-	private FieldType(int value) {
+	FieldType(int value) {
 		this.value = value;
 	}
 	
