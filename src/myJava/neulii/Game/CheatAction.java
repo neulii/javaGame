@@ -1,12 +1,12 @@
 package myJava.neulii.Game;
 
-public class CheatAction {
+class CheatAction {
 	
-	public static void doCheat(GameWindow gw, String cheatCode) {
+	static void doCheat(GameWindow gw, String cheatCode) {
 	
 		MaterialManager mm = gw.getMaterialManager();
 		int value = 0;
-		String arguments[];
+		String [] arguments;
 		
 		arguments = cheatCode.split(",");
 		
