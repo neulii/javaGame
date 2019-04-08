@@ -1,0 +1,61 @@
+TODOS
+
+- find new pictures for symbols
+
+- produktionsst�tte animieren
+
+- market for buy and rebuing things
+
+- upgrades f�r produktionsgeb�ude
+
+- fenster f�r produktions tiles
+
+- make gui for production tiles -> to load ores and things
+
+- game points and achievements
+
+- neue Produktionsgeb�ude
+
+- zooming the map
+
+- change map with cheat
+
+- speichern / laden
+
+- menu
+
+- balancing der produktion
+
+- canceling build mit q-taste
+
+- market  zum gui hinzufüügen button
+
+- gebäude lager begrenzen 
+
+- lager gebäude / lager begrenzen
+
+- forschung
+
+- gebäude erweitern -> tiefer bohren für rohstoffe -> forschung
+
+- anzeige in den produktionsgebäuden wieviele produkte schon hergestellt wurden -> evt nur debug
+
+- abreissen der gebäude
+
+- performance steigerung -> zeichne nur teile die sichtbar sind
+
+
+
+
+==== erledigt =======
+
+- animation / signalisierung der production tiles wenn sie gestoppt werden
+
+
+
+==============BUGS==============
+
+
+
+
+
