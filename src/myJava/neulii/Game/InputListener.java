@@ -92,11 +92,14 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 				case TITLE_MENU:
 
 
-					//Beenden button
-					if(gw.getGameMenu().getButtonEnd().contains(gw.getMousePos())){
-						System.exit(0);
-					}
+					gw.getGameMenu().clickedAt(gw.getMousePos());
 
+
+//					//Beenden button
+//					if(gw.getGameMenu().getButtonEnd().contains(gw.getMousePos())){
+//						System.exit(0);
+//					}
+//
 
 
 					break;

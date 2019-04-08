@@ -55,15 +55,15 @@ public class GameWindow extends Canvas implements GameObject{
 		windowHeight =15 * TILE_HEIGHT;
 
 		windowSize = new Dimension(width, height);
-		
+
 		initializeObjects();
 		initializeWindow();
-
 
 		gameMenu = new GameMenu(this);
 
 //		gameState = GameState.MAINGAME;
 		gameState = GameState.TITLE_MENU;
+
 
 		gameWindow.setVisible(true);
 		gameWindow.setResizable(true);
