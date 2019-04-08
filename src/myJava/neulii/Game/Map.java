@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * This is a map class. it takes fields and create a map
  * 
- * @see Field
+ * @see Tile
  * @author neulii
  *
  */
