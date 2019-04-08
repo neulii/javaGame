@@ -1,6 +1,6 @@
 package myJava.neulii.Game;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
@@ -33,57 +33,80 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 	
 		//left Mousebutton
 		if(e.getButton()==MouseEvent.BUTTON1) {
-			
-			//when mouse is over menu
-			if(gw.getMouseOverMenu()) {
-				if(gui.getElementMarked()==gui.getHooveredElement())
-					gui.clearMarkedTile();
-				else 
-					gui.setHooveredTileMarked();
-			}
-			
-			//when mouse is not in menu
-			if(!gw.getMouseOverMenu()) {
 
-				//when buildable on field
-				if(gui.getElementMarked()!=null) {
-					
-					//when tile can build on actual field and money is enough
-					if(canBuildOnActualField && (gui.getElementMarked().getCostOfTile()<=gw.getMaterialManager().getMoney())) {
-						
-						//tile = new Tile(tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight(), gui.getElementMarked().getFieldType(), gui.getElementMarked().getImage());
-						
-						changeingTile = gui.getElementMarked().getImage();
-						
-						Tile newTile;
-						
-						//new Type of Tile is furnace
-						if( gui.getElementMarked() instanceof Production_Furnace) {
-							newTile = new Production_Furnace(tile,gui.getElementMarked().getFieldType(),gw.getMaterialManager());
-						}
+
+			switch (gw.getGameState()) {
+
+				case MAINGAME:
+
+					//when mouse is over menu
+					if (gw.getMouseOverMenu()) {
+						if (gui.getElementMarked() == gui.getHooveredElement())
+							gui.clearMarkedTile();
 						else
-							newTile = new ProductionTile(tile,gui.getElementMarked().getFieldType(),gw.getMaterialManager());
-						
-						//newTile.setHooveredBorderThickness(2);
-						
-						newTile.setHooveredBorderColor(Color.blue);
-						newTile.setHoovered(true);
-						
-						gw.getMap().changeField(tile, newTile);
-						
-//						tile.setImage(gui.getElementMarked().getImage());				
-//						tile.setFieldType(gui.getElementMarked().getFieldType());
-//						
-						gw.getMaterialManager().subMoney(((ProductionTile)newTile).getCostOfTile());
-						
-						gui.clearMarkedTile();
-						changeingTile = null;
-						tile.setHooveredBorderColor(Color.blue);
+							gui.setHooveredTileMarked();
 					}
-				}
+
+					//when mouse is not in menu
+					if (!gw.getMouseOverMenu()) {
+
+						//when buildable on field
+						if (gui.getElementMarked() != null) {
+
+							//when tile can build on actual field and money is enough
+							if (canBuildOnActualField && (gui.getElementMarked().getCostOfTile() <= gw.getMaterialManager().getMoney())) {
+
+								//tile = new Tile(tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight(), gui.getElementMarked().getFieldType(), gui.getElementMarked().getImage());
+
+								changeingTile = gui.getElementMarked().getImage();
+
+								Tile newTile;
+
+								//new Type of Tile is furnace
+								if (gui.getElementMarked() instanceof Production_Furnace) {
+									newTile = new Production_Furnace(tile, gui.getElementMarked().getFieldType(), gw.getMaterialManager());
+								} else
+									newTile = new ProductionTile(tile, gui.getElementMarked().getFieldType(), gw.getMaterialManager());
+
+								//newTile.setHooveredBorderThickness(2);
+
+								newTile.setHooveredBorderColor(Color.blue);
+								newTile.setHoovered(true);
+
+								gw.getMap().changeField(tile, newTile);
+
+	//						tile.setImage(gui.getElementMarked().getImage());
+	//						tile.setFieldType(gui.getElementMarked().getFieldType());
+	//
+								gw.getMaterialManager().subMoney(((ProductionTile) newTile).getCostOfTile());
+
+								gui.clearMarkedTile();
+								changeingTile = null;
+								tile.setHooveredBorderColor(Color.blue);
+							}
+						}
+					}
+
+					break;
+
+				case TITLE_MENU:
+
+
+					//Beenden button
+					if(gw.getGameMenu().getButtonEnd().contains(gw.getMousePos())){
+						System.exit(0);
+					}
+
+
+
+					break;
+
+
 			}
+
+
 		}
-		
+
 		//Right Mousebutton
 		
 		if(e.getButton()==MouseEvent.BUTTON3) {

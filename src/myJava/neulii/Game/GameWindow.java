@@ -11,7 +11,10 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 public class GameWindow extends Canvas implements GameObject{
-	
+
+	private GameMenu gameMenu;
+	private GameState gameState;
+
 	private static final long serialVersionUID = 1L;
 	
 	private final int MAPWIDTH = 300;		//mapwidth in tiles
@@ -46,6 +49,8 @@ public class GameWindow extends Canvas implements GameObject{
 	private GUI gui;
 
 	public GameWindow(int width, int height) {
+
+
 		windowWidth = 20 * TILE_WIDTH;
 		windowHeight =15 * TILE_HEIGHT;
 
@@ -53,7 +58,13 @@ public class GameWindow extends Canvas implements GameObject{
 		
 		initializeObjects();
 		initializeWindow();
-		
+
+
+		gameMenu = new GameMenu(this);
+
+//		gameState = GameState.MAINGAME;
+		gameState = GameState.TITLE_MENU;
+
 		gameWindow.setVisible(true);
 		gameWindow.setResizable(true);
 		gameIsRunning = true;
@@ -128,11 +139,28 @@ public class GameWindow extends Canvas implements GameObject{
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
 
 		//==================    Add Drawing Stuff here    =====================
-		
-	
-		gameMap.render(g);
-		gui.render(g);
-	
+
+
+		//painting je nach gamestate
+
+		switch (gameState){
+			case TITLE_MENU:
+
+				gameMenu.render(g);
+				break;
+
+			case MAINGAME:
+
+				gameMap.render(g);
+				gui.render(g);
+
+				break;
+
+			case PAUSED:
+				break;
+		}
+
+
 	
 		//==================     End of drawing zone      ===================== 
 		
@@ -142,8 +170,23 @@ public class GameWindow extends Canvas implements GameObject{
 	
 	//Update Method
 	public void update(long dT) {
-		gui.update(dT);
-		gameMap.update(dT);
+
+		switch (gameState){
+			case TITLE_MENU:
+
+				gameMenu.update(dT);
+				break;
+
+			case MAINGAME:
+
+				gui.update(dT);
+				gameMap.update(dT);
+
+				break;
+
+			case PAUSED:
+				break;
+		}
 	}
 	
 	//initialize Window
@@ -218,5 +261,17 @@ public class GameWindow extends Canvas implements GameObject{
 	public JFrame getFrame() {
 		return gameWindow;
 	}
-	
+
+	public GameState getGameState() {
+		 return gameState;
+	}
+
+	public void setGameState(GameState state){
+		gameState = state;
+
+	}
+
+	public GameMenu getGameMenu() {
+		return gameMenu;
+	}
 }
