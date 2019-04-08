@@ -20,10 +20,10 @@ public class GUI implements GameObject{
 	private ProductionTile elementIsMarked = null;
 	private ProductionTile hooveredTile = null;
 	
-	private ArrayList<ProductionTile> menuTiles = new ArrayList<ProductionTile>();
-	private ArrayList<Tile> symbolTiles = new ArrayList<Tile>();
+	private ArrayList<ProductionTile> menuTiles = new ArrayList<>();
+	private ArrayList<Tile> symbolTiles = new ArrayList<>();
 	
-	int beginningInfoSymbols = 300;
+	private int beginningInfoSymbols = 300;
 	
 	public GUI(GameWindow gw, MaterialManager mm) {
 		this.gw = gw;
@@ -70,13 +70,13 @@ public class GUI implements GameObject{
 			Tile tempField = gw.getMap().getTileFromCoordinate(gw.getMousePos().x,gw.getMousePos().y);
 		
 			g.setFont(new Font("default",Font.BOLD,20));
-			g.drawString("FPS: " + Integer.toString(gw.getActualFrames()),0,20);
+			g.drawString("FPS: " + gw.getActualFrames(),0,20);
 		
 			//showField information
 		
-			String fieldType = null;
-			String showResource = null;
-			String showCoordinate = null;
+			String fieldType;
+			String showResource;
+			String showCoordinate;
 			
 			if(tempField!=null) {
 				
@@ -115,16 +115,16 @@ public class GUI implements GameObject{
 		//Coal Info
 		g.setColor(Color.black);
 		g.setFont(new Font("default",Font.BOLD,20));
-		g.drawString(Integer.toString((int)(mm.getcoal())),60,beginningInfoSymbols+100);
+		g.drawString(Integer.toString(mm.getcoal()),60,beginningInfoSymbols+100);
 	
 		//iron_ore info
-		g.drawString(Integer.toString((int)(mm.getIronOre())),60,beginningInfoSymbols+60);
+		g.drawString(Integer.toString(mm.getIronOre()),60,beginningInfoSymbols+60);
 		
 		//money_info
-		g.drawString(Integer.toString((int)(mm.getMoney())),60,beginningInfoSymbols+20);
+		g.drawString(Integer.toString(mm.getMoney()),60,beginningInfoSymbols+20);
 		
 		//raw_iron
-		g.drawString(Integer.toString((int)(mm.getRawIron())),60,beginningInfoSymbols+140);
+		g.drawString(Integer.toString(mm.getRawIron()),60,beginningInfoSymbols+140);
 		
 		//show warning when money is enough
 		if(moneyWarning) {
@@ -150,7 +150,7 @@ public class GUI implements GameObject{
 	@Override
 	public void update(long dT) {
 		boolean allOver = false;
-		boolean tempIsOverMenu = false;
+		boolean tempIsOverMenu;
 		
 		for (ProductionTile tile : menuTiles) {
 			if(tile.isInside(gw.getMousePos())) {
