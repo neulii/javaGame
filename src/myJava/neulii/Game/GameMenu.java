@@ -9,9 +9,15 @@ public class GameMenu implements GameObject{
     private int buttonWidth = 180;
     private int buttonHeight = 60;
 
-    private Rectangle buttonEnd;
-    private Rectangle buttonNewGame;
-    private Rectangle buttonLoadGame;
+    MenuButton startNewGame;
+
+
+
+
+
+//    private Rectangle buttonEnd;
+//    private Rectangle buttonNewGame;
+//    private Rectangle buttonLoadGame;
 
     private Vector<Rectangle> buttons;
 
@@ -22,20 +28,26 @@ public class GameMenu implements GameObject{
 
     public GameMenu(GameWindow gameWindow){
 
-        buttons = new Vector<>();
+        //buttons = new Vector<>();
         
         this.gw = gameWindow;
         
 
         leftMenu = (gw.getWidth()-buttonWidth) /2;
 
-        buttonNewGame = new Rectangle(leftMenu,topMenu,buttonWidth,buttonHeight);
-        buttonLoadGame = new Rectangle(leftMenu,(int)buttonNewGame.getY()+ buttonDistance+buttonHeight,buttonWidth,buttonHeight);
-        buttonEnd = new Rectangle(leftMenu,(int)buttonLoadGame.getY()+buttonDistance+buttonHeight,buttonWidth,buttonHeight);
+        startNewGame = new MenuButton(leftMenu,topMenu,buttonWidth,buttonHeight,"Neues Spiel");
 
-        buttons.add(buttonNewGame);
-        buttons.add(buttonLoadGame);
-        buttons.add(buttonEnd);
+
+
+
+
+//        buttonNewGame = new Rectangle(leftMenu,topMenu,buttonWidth,buttonHeight);
+//        buttonLoadGame = new Rectangle(leftMenu,(int)buttonNewGame.getY()+ buttonDistance+buttonHeight,buttonWidth,buttonHeight);
+//        buttonEnd = new Rectangle(leftMenu,(int)buttonLoadGame.getY()+buttonDistance+buttonHeight,buttonWidth,buttonHeight);
+//
+//        buttons.add(buttonNewGame);
+//        buttons.add(buttonLoadGame);
+//        buttons.add(buttonEnd);
     }
 
     @Override
@@ -46,47 +58,50 @@ public class GameMenu implements GameObject{
 
     @Override
     public void render(Graphics g) {
-        for (Rectangle r :
-                buttons) {
 
-        g.drawRect((int)r.getX(),(int) r.getY(),(int)r.getWidth(), (int)r.getHeight());
-
-        }
-        g.drawString("Neues Spiel", leftMenu+20, buttonNewGame.y+20);
-
-        g.drawString("Spiel Laden", leftMenu+20, buttonLoadGame.y+20);
-        g.drawString("Beenden", leftMenu+20, buttonEnd.y+20);
+        startNewGame.render(g);
+//        for (Rectangle r :
+//                buttons) {
+//
+//        g.drawRect((int)r.getX(),(int) r.getY(),(int)r.getWidth(), (int)r.getHeight());
+//
+//        }
+//        g.drawString("Neues Spiel", leftMenu+20, buttonNewGame.y+20);
+//
+//        g.drawString("Spiel Laden", leftMenu+20, buttonLoadGame.y+20);
+//        g.drawString("Beenden", leftMenu+20, buttonEnd.y+20);
 
     }
 
 
-    public Rectangle getButtonEnd(){
-        return buttonEnd;
-    }
+//    public Rectangle getButtonEnd(){
+//        return buttonEnd;
+//    }
 
     public void clickedAt(Point p){
 
-        if(buttonNewGame.contains(p)){
-            gw.setGameState(GameState.MAINGAME);
-
-        }
-
-        if(buttonEnd.contains(p)){
-            System.exit(0);
-        }
+//        if(buttonNewGame.contains(p)){
+//            gw.setGameState(GameState.MAINGAME);
+//
+//        }
+//
+//        if(buttonEnd.contains(p)){
+//            System.exit(0);
+//        }
 
     }
 
     public void setMousePosition(Point p){
-
-        for (Rectangle r : buttons) {
-            if(r.contains(p)){
-
-
-                System.out.println("inside");
-
-            }
-        }
+//
+//        for (Rectangle r : buttons) {
+//            if(r.contains(p)){
+//
+//
+//                System.out.println("inside");
+//
+//
+//            }
+//        }
 
     }
 }
