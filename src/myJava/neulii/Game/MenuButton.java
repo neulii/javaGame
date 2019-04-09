@@ -10,6 +10,9 @@ public class MenuButton implements GameObject {
     private int width;
     private int height;
 
+    private Color textColor;
+    private Color backgroundColor;
+
     private String buttonText;
 
 
@@ -19,12 +22,15 @@ public class MenuButton implements GameObject {
         this.width = width;
         this.height = height;
         this.buttonText = buttonText;
+        this.backgroundColor = Color.gray;
+        this.textColor = Color.black;
     }
 
 
     @Override
     public void render(Graphics g) {
-        g.drawRect(x,y,width,height);
+        g.setColor(backgroundColor);
+        g.fillRect(x,y,width,height);
 
         FontMetrics fontMetrics = g.getFontMetrics(g.getFont());
         int textWidth = fontMetrics.stringWidth(buttonText);
@@ -33,7 +39,7 @@ public class MenuButton implements GameObject {
         int xString = x+ (width-textWidth)/2;
         int yString = y +(height - textHeight)/2 + fontMetrics.getAscent();
 
-
+        g.setColor(textColor);
         g.drawString(buttonText,xString,yString);
 
     }
@@ -41,5 +47,13 @@ public class MenuButton implements GameObject {
     @Override
     public void update(long dT) {
 
+    }
+
+    public void setBackgroundColor(Color color){
+        backgroundColor = color;
+    }
+
+    public void setTextColor(Color color){
+        textColor = color;
     }
 }

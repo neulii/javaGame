@@ -60,6 +60,10 @@ public class GameWindow extends Canvas implements GameObject{
 		initializeWindow();
 
 		gameMenu = new GameMenu(this);
+		gameMenu.addMenuButton("Neues Spiel");
+		gameMenu.addMenuButton("Spiel Laden");
+		gameMenu.addMenuButton("Spiel beenden");
+
 
 //		gameState = GameState.MAINGAME;
 		gameState = GameState.TITLE_MENU;
