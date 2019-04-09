@@ -1,7 +1,5 @@
 package myJava.neulii.Game;
 
-import org.w3c.dom.css.Rect;
-
 import java.awt.*;
 import java.util.Vector;
 
@@ -75,6 +73,19 @@ public class GameMenu implements GameObject{
 
         if(buttonEnd.contains(p)){
             System.exit(0);
+        }
+
+    }
+
+    public void setMousePosition(Point p){
+
+        for (Rectangle r : buttons) {
+            if(r.contains(p)){
+
+
+                System.out.println("inside");
+
+            }
         }
 
     }

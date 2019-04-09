@@ -149,78 +149,83 @@ public class InputListener extends MouseAdapter implements MouseInputListener, K
 	public void mouseMoved(MouseEvent e) {
 		me = e;
 		gw.setMousePos(e.getPoint());
-		
-		
-		//mouse is over field  and not in menu
-		if(!gw.getMouseOverMenu()) {
-		
-			activeTile = newTile;
-			newTile = gw.getMap().getTileFromCoordinate(e.getX(), e.getY());
-			
-			if(newTile==activeTile) {
-				if(newTile!=null)
-					newTile.setHoovered(true);
-			}
-			
-			//when new field becomes active
-			if(newTile!=activeTile) {
-				
-				//when a icon in menu is marked
-				if(gui.getElementMarked()!=null) {
-					//System.out.println(gui.getElementMarked().getFieldType() + "     "+ newTile.getFieldType());
-					
-					//reset oldpicture
-					if(changeingTile!=null) {
-					
-						activeTile.setImage(changeingTile);
-						
-					}
-					
-					//save old picture
-					changeingTile= newTile.getImage();
-					
-					//setpicture from selected 
-					newTile.setImage(gui.getElementMarked().getImage());
-					
-					
-					//when tile can build on actual field and money is enough
-					if(gui.getElementMarked().getBuildOn(newTile.getFieldType()) ) {
-						
-						//if enough money
-						if(gui.getElementMarked().getCostOfTile()<=gw.getMaterialManager().getMoney()) {
-							
-							canBuildOnActualField = true;
-							newTile.setHooveredBorderColor(Color.green);
-						}
-						
-						else {
-							
-							newTile.setHooveredBorderColor(Color.ORANGE);	
-							gui.showMoneyWarning(true);
-						}
+
+		switch (gw.getGameState()) {
+			case MAINGAME:
+				//mouse is over field  and not in menu
+				if (!gw.getMouseOverMenu()) {
+
+					activeTile = newTile;
+					newTile = gw.getMap().getTileFromCoordinate(e.getX(), e.getY());
+
+					if (newTile == activeTile) {
+						if (newTile != null)
+							newTile.setHoovered(true);
 					}
 
-					else {
-						canBuildOnActualField = false;
-						newTile.setHooveredBorderColor(Color.red);
-						gui.showMoneyWarning(false);
-					}
+					//when new field becomes active
+					if (newTile != activeTile) {
 
-					newTile.setHoovered(true);
+						//when a icon in menu is marked
+						if (gui.getElementMarked() != null) {
+							//System.out.println(gui.getElementMarked().getFieldType() + "     "+ newTile.getFieldType());
+
+							//reset oldpicture
+							if (changeingTile != null) {
+
+								activeTile.setImage(changeingTile);
+
+							}
+
+							//save old picture
+							changeingTile = newTile.getImage();
+
+							//setpicture from selected
+							newTile.setImage(gui.getElementMarked().getImage());
+
+
+							//when tile can build on actual field and money is enough
+							if (gui.getElementMarked().getBuildOn(newTile.getFieldType())) {
+
+								//if enough money
+								if (gui.getElementMarked().getCostOfTile() <= gw.getMaterialManager().getMoney()) {
+
+									canBuildOnActualField = true;
+									newTile.setHooveredBorderColor(Color.green);
+								} else {
+
+									newTile.setHooveredBorderColor(Color.ORANGE);
+									gui.showMoneyWarning(true);
+								}
+							} else {
+								canBuildOnActualField = false;
+								newTile.setHooveredBorderColor(Color.red);
+								gui.showMoneyWarning(false);
+							}
+
+							newTile.setHoovered(true);
+						}
+
+						if (activeTile != null) {
+							activeTile.setHoovered(false);
+							activeTile.setHooveredBorderColor(Color.blue);
+
+						}
+					}
 				}
-				
-				if(activeTile!=null) {
-					activeTile.setHoovered(false);
-					activeTile.setHooveredBorderColor(Color.blue);
-					
+
+				//mouse is leaving field
+				else {
+					if (activeTile != null)
+						activeTile.setHoovered(false);
+					newTile.setHoovered(false);
 				}
-			}
-		}
-		//mouse is leaving field
-		else {
-			if(activeTile!=null)
-				activeTile.setHoovered(false);
-			newTile.setHoovered(false);
+				break;
+
+
+			case TITLE_MENU:
+				gw.getGameMenu().setMousePosition(gw.getMousePosition());
+				break;
 		}
 	}
 
